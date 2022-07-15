@@ -8,11 +8,14 @@ public delegate void NotifyTicketComplete(bool success, Severity severity);
 public class TicketModel : MonoBehaviour
 {
     Severity ticketSeverity;
-    public float timeRemaining = 10f;
+    public float timeToComplete = 10f;
+    public float timeRemaining;
     int rollNeeded;
     bool below;
     bool timerRunning = false;
     Text plea;
+
+    public Image mask;
 
     public event NotifyTicketComplete ticketCompletion;
 
@@ -22,6 +25,7 @@ public class TicketModel : MonoBehaviour
         this.rollNeeded = rollNeeded;
         this.below = below;
         this.plea = plea;
+        this.timeRemaining = timeToComplete;
     }
 
     // Start is called before the first frame update
@@ -38,9 +42,12 @@ public class TicketModel : MonoBehaviour
             if (timeRemaining > 0)
             {
                 this.timeRemaining -= Time.deltaTime;
+                float fillAmt = timeRemaining / timeToComplete;
+                mask.fillAmount = fillAmt;
             }
             else
             {
+                timerRunning = false;
                 Debug.Log("ticket timed out");
                 OnTicketFailed();
             }

@@ -8,15 +8,16 @@ public class GameModel : MonoBehaviour {
     const int TICKETS = 30;
     const float DAY_LENGTH = 180;
 
-    public int day { get; set; };
-    public float dayTimer { get; set; };
+    public int day { get; set; }
+    public float dayTimer { get; set; }
     
-    public List<TicketModel> Tickets { get; set; }
-    public float dailyTicketInterval { get; set; };
+    public TextAsset ticketsCSV { get; set; }
+    public List<TicketModel> tickets { get; set; }
+    public float dailyTicketInterval { get; set; }
 
     public List<DieModel> dice { get; set; }
 
-    public int followerCount { get; set; };
+    public int followerCount { get; set; }
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,7 @@ public class GameModel : MonoBehaviour {
         dayTimer = DAY_LENGTH;
         dailyTicketInterval = DAY_LENGTH/(TICKETS * day);
         followerCount = 3;
-        GenerateTickets();
+        tickets = TicketParser.ReadTickets(ticketsCSV);
     }
     
     // Update is called once per frame
@@ -61,7 +62,6 @@ public class GameModel : MonoBehaviour {
     public void NextDay(){
         day++;
         dayTimer = DAY_LENGTH;
-        dailyTickets = TICKETS * day;
     }
 
     public void GenerateTickets(){

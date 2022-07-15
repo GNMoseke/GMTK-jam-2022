@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public delegate void NotifyTicketComplete(bool success, Severity severity);
+public delegate void NotifyTicketComplete(bool success, int severity);
 
 public class TicketModel : MonoBehaviour
 {
-    Severity ticketSeverity;
+    // 1 2 or 3. Was an enum but overcomplicated for something so simple
+    int ticketSeverity;
     public float timeToComplete = 10f;
     public float timeRemaining;
     int rollNeeded;
     bool below;
     bool timerRunning = false;
-    Text plea;
+    Text pleaText;
+    string plea;
 
     public Image mask;
 
     public event NotifyTicketComplete ticketCompletion;
 
-    TicketModel(Severity severity, int rollNeeded, bool below, Text plea)
+    public TicketModel(string plea, int rollNeeded, bool below, int severity)
     {
         this.ticketSeverity = severity;
         this.rollNeeded = rollNeeded;
@@ -31,6 +33,7 @@ public class TicketModel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.pleaText.text = this.plea;
         this.timerRunning = true;
     }
 
@@ -87,11 +90,4 @@ public class TicketModel : MonoBehaviour
         // TODO: play fail anim & destroy self/die
         ticketCompletion.Invoke(false, this.ticketSeverity);
     }
-}
-
-public enum Severity : int
-{
-    Low = 1,
-    Medium = 2,
-    High = 3
 }

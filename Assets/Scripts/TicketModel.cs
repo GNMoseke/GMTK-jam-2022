@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// TODO: for my own sanity split these later
 public delegate void NotifyTicketComplete(bool success, int severity);
 
 public class TicketModel : MonoBehaviour
 {
     // 1 2 or 3. Was an enum but overcomplicated for something so simple
     int ticketSeverity;
-    public float timeToComplete = 10f;
-    public float timeRemaining;
-    int rollNeeded;
-    bool below;
+    float timeToComplete;
+    float timeRemaining;
+    int rollNeeded { get; set; }
+    bool below { get; set; }
     bool timerRunning = false;
-    Text pleaText;
-    string plea;
+    string plea { get; set; }
 
-    public Image mask;
+    Image mask;
+    public TMPro.TMP_Text pleaTextObj;
+
 
     public event NotifyTicketComplete ticketCompletion;
 
@@ -27,13 +29,32 @@ public class TicketModel : MonoBehaviour
         this.rollNeeded = rollNeeded;
         this.below = below;
         this.plea = plea;
-        this.timeRemaining = timeToComplete;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void InstantiateTicket(TicketModel model)
     {
-        this.pleaText.text = this.plea;
+        this.ticketSeverity = model.ticketSeverity;
+        this.rollNeeded = model.rollNeeded;
+        this.below = model.below;
+        this.plea = model.plea;
+
+        this.pleaTextObj = this.GetComponentInChildren<TMPro.TMP_Text>();
+        Debug.Log(pleaTextObj);
+        // FIXME multiple images might screw this
+        List<Image> images = new List<Image>(this.GetComponentsInChildren<Image>());
+        foreach (Image img in images)
+        {
+            if (img.gameObject.name == "Mask")
+            {
+                this.mask = img;
+                break;
+            }
+        }
+
+        this.pleaTextObj.text = model.plea;
+        this.timeToComplete = 10f;
+        this.timeRemaining = timeToComplete;
+
         this.timerRunning = true;
     }
 

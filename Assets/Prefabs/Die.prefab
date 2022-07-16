@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2923130460937422454}
   - component: {fileID: 2923130460937422455}
   - component: {fileID: 2923130460937422440}
-  - component: {fileID: 2923130460937422442}
   - component: {fileID: 2923130460937422444}
   - component: {fileID: 5245720636723140937}
+  - component: {fileID: -3637614785920303479}
   m_Layer: 0
   m_Name: Die
   m_TagString: Die
@@ -108,18 +108,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2923130460937422442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2923130460937422453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08216166deaea2049a7e506d1939711b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &2923130460937422444
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -142,3 +130,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -835688487210165693, guid: 66880c770afbf8d4ca91ac3bedbae086, type: 3}
+--- !u!114 &-3637614785920303479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2923130460937422453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c049d50d92b4a47a27ce2c9d7154c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 10

@@ -13,26 +13,22 @@ public class Spawn20 : MonoBehaviour
 
     public void OnMouseDown()
     {
-        twentyPipe.GetComponent<Rigidbody>().useGravity = true;
-        cnt++;
+        if (gameModel.nat20Counter > 0)
+        {
+            twentyPipe.GetComponent<Rigidbody>().useGravity = true;
+            cnt++;
+        }
     }
 
     public void FixedUpdate()
     {
-        if (gameModel.nat20Counter <= 0)
+        if (twentyPipe.transform.position.y < 120 && twentyPipe.GetComponent<Rigidbody>().useGravity)
         {
-            print("No more nat 20s to spawn");
-        }
-        else
-        {
-            if (twentyPipe.transform.position.y < 120 && twentyPipe.GetComponent<Rigidbody>().useGravity)
-            {
-                twentyPipe.GetComponent<Rigidbody>().useGravity = false;
-                twentyPipe.GetComponent<Rigidbody>().velocity = risingVel;
-                for (int i = 0; i < cnt; i++)
-                    SpawnDie();
-                cnt = 0;
-            }
+            twentyPipe.GetComponent<Rigidbody>().useGravity = false;
+            twentyPipe.GetComponent<Rigidbody>().velocity = risingVel;
+            for (int i = 0; i < cnt; i++)
+                SpawnDie();
+            cnt = 0;
         }
         if (twentyPipe.transform.position.y > 150)
             twentyPipe.GetComponent<Rigidbody>().velocity = Vector3.zero;

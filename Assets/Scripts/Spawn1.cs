@@ -17,37 +17,32 @@ public class Spawn1 : MonoBehaviour
 
     public void OnMouseDown()
     {
-        rising = true;
-        cnt++;
+        if (gameModel.nat1Counter > 0)
+        {
+            rising = true;
+            cnt++;
+        }
     }
 
     public void FixedUpdate()
     {
-        if (gameModel.nat1Counter <= 0)
+        if (onePipe.transform.position.y > -70 && rising)
         {
-            print("No more nat 1s to spawn");
+            onePipe.GetComponent<Rigidbody>().useGravity = true;
+            for (int i = 0; i < cnt; i++)
+                SpawnDie();
+            cnt = 0;
+            rising = false;
         }
-        else
-        {
-            if (onePipe.transform.position.y > -70 && rising)
-            {
-                onePipe.GetComponent<Rigidbody>().useGravity = true;
-                for (int i = 0; i < cnt; i++)
-                    SpawnDie();
-                cnt = 0;
-                rising = false;
-            }
 
-
-            if (rising)
-                onePipe.GetComponent<Rigidbody>().AddForce(-Physics.gravity * onePipe.GetComponent<Rigidbody>().mass);
-        }
+        else if (rising)
+            onePipe.GetComponent<Rigidbody>().AddForce(-Physics.gravity * onePipe.GetComponent<Rigidbody>().mass);
         
-            if (onePipe.transform.position.y < -120)
-            {
-                onePipe.GetComponent<Rigidbody>().useGravity = false;
-                onePipe.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            }
+        if (onePipe.transform.position.y < -120)
+        {
+            onePipe.GetComponent<Rigidbody>().useGravity = false;
+            onePipe.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 
     private void SpawnDie()

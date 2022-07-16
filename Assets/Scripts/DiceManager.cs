@@ -14,4 +14,16 @@ public class DiceManager : MonoBehaviour
             newDice.GetComponent<Renderer>().material.SetFloat("_Number", num);
         }
     }
+
+    public static void GenerateNat1(GameObject dice)
+    {
+        GameObject newDice = Instantiate(dice, new Vector3(Random.Range(12f, 18f), Random.Range(20.0f, 50.0f), Random.Range(2f, 8f)), dice.transform.rotation);
+        newDice.GetComponent<Renderer>().material.SetFloat("_Number", "1");
+    }
+
+    public static void GenerateNat20(GameObject dice)
+    {
+        GameObject newDice = Instantiate(dice, new Vector3(Random.Range(12f, 18f), Random.Range(20.0f, 50.0f), Random.Range(2f, 8f)), dice.transform.rotation);
+        newDice.GetComponent<Renderer>().material.SetFloat("_Number", "20");
+    }
 }

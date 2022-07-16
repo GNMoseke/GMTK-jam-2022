@@ -22,7 +22,7 @@ public class Leaderboard : MonoBehaviour
 
     public void UpdateLeaderboard(int playerFollowers) {
         leaderboard["YOU"] = playerFollowers;
-        leaderboardUI.text = "LEADERBOARD\n";
+        leaderboardUI.text = "";
         var sortedLeaderboard = from entry in leaderboard orderby entry.Value descending select entry;
         foreach(var item in sortedLeaderboard) {
             leaderboardUI.text += $"{item.Key}: {item.Value + ((item.Key == "YOU") ? 0 : Random.Range(-20, 20))} Followers\n";

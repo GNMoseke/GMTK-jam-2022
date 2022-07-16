@@ -96,7 +96,7 @@ public class TicketModel : MonoBehaviour
     {
         this.pendingDestroy = true;
         yield return new WaitForSecondsRealtime(coyoteTime);
-        if (this.pendingDestroy)
+        if (this.pendingDestroy && die != null)
         {
             this.timerRunning = false;
             // if we need below and the die is below what we need, succeed

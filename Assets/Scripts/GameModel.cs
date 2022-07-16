@@ -17,6 +17,8 @@ public class GameModel : MonoBehaviour
     public GameObject dicePrefab;
     public List<TicketModel> tickets { get; set; }
     public float dailyTicketInterval { get; set; }
+    public Slider followerSlider;
+    public TMPro.TMP_Text followerCountText;
 
     public int followerCount { get; set; }
 
@@ -31,88 +33,93 @@ public class GameModel : MonoBehaviour
     public int nat20Counter;
     public int nat1Counter;
 
+
+    public bool betweenDays;
+
     // Use this for initialization
     void Start()
     {
-        nat20Counter = 5;
-        nat1Counter = 5;
-        day = 1;
-        int dailyTickets = (TICKETS * day);
-        int randomDice = dailyTickets - nat1Counter - nat20Counter;
-        dayTimer = DAY_LENGTH;
-        dailyTicketInterval = DAY_LENGTH / dailyTickets;
-        followerCount = 3;
         tickets = TicketParser.ReadTickets(ticketsCSV);
-        Debug.Log(tickets.Count);
-        GenerateTicket(tickets[0]);
-
-        ticketTimer = 0;
-        numActiveTickets = 1;
-        DiceManager.GenerateDice(randomDice, dicePrefab);
+        day = 0;
+        followerCount = 3;
+        UpdateUI();
+        NextDay();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (dayTimer > 0)
+        if (!betweenDays)
         {
-            this.dayTimer -= Time.deltaTime;
-            ticketTimer += Time.deltaTime;
-            if (ticketTimer >= dailyTicketInterval)
+            if (dayTimer > 0)
             {
-                GenerateTicket(tickets[numActiveTickets]);
-                numActiveTickets++;
-                ticketTimer = 0;
+                this.dayTimer -= Time.deltaTime;
+                ticketTimer += Time.deltaTime;
+                if (ticketTimer >= dailyTicketInterval)
+                {
+                    GenerateTicket(tickets[numActiveTickets]);
+                    numActiveTickets++;
+                    ticketTimer = 0;
+                }
+            }
+            else // DAY FINISHED
+            {
+                // 1) look up at leaderboard
+                // 2) click continue
+                betweenDays = true;
+                Camera.main.GetComponent<CameraRotate>().StartRotation(false);
+                ResetTable();
             }
         }
-        else // DAY FINISHED
-        {
-            // 1) look up at leaderboard
-            // 2) click continue
-
-            ResetTable();
-            NextDay();
-        }
-        /*
-        dec dayTimer
-        if(dayTimer > 0)
-             if(need to print a ticket)
-                 print a ticket
-             loop all tickets on table
-                 if ticket expired or ticket failed
-                     lose followers
-                 else if ticket passed
-                     gain followers
-                     lose dice
-
-         else
-             reset table
-             -----maybe do some other shit----
-             start nextDay
-        */
-
-
-    }
-
-    public void CheckTicket(TicketModel ticket)
-    {
-
     }
 
     public void ResetTable()
     {
-        // TODO: re-initialize dice and add extra nat 20's and nat 1's (based on performance of previous day)
+        DeleteRemainingDice();
+        // Activate scoreboard, pause game
+        Time.timeScale = 0;
     }
 
+
+    private void DeleteRemainingDice()
+    {
+        GameObject[] remainingDice = GameObject.FindGameObjectsWithTag("Die");
+        foreach (GameObject die in remainingDice)
+        {
+            GameObject.Destroy(die);
+        }
+    }
+
+    // TODO: called by continue button on board
     public void NextDay()
     {
         day++;
         dayTimer = DAY_LENGTH;
+        int modifier = CalculateAdditionalDiceModifier();
+        nat20Counter = 5 * day + modifier;
+        nat1Counter = 5 * day + modifier;
+        int dailyTickets = (TICKETS * day);
+        int randomDice = dailyTickets - nat1Counter - nat20Counter;
+        dayTimer = DAY_LENGTH;
+        dailyTicketInterval = DAY_LENGTH / dailyTickets;
+        ticketTimer = dailyTicketInterval - 1f;
+        numActiveTickets = 1;
+
+        Time.timeScale = 1f;
+        betweenDays = false;
+        DiceManager.GenerateDice(randomDice, dicePrefab);
+    }
+
+    private int CalculateAdditionalDiceModifier()
+    {
+        // TODO: scale better
+        print("GAINED " + (followerCount / 10) * (day - 1));
+        return (followerCount / 10) * (day - 1);
     }
 
     public void GenerateTicket(TicketModel ticket)
     {
-        GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position,  Quaternion.Euler(0, -35f, 0));
+        GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position, Quaternion.Euler(0, -35f, 0));
         ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.up * shootForce);
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
@@ -125,10 +132,22 @@ public class GameModel : MonoBehaviour
         if (success)
         {
             followerCount += severity;
-        } 
+        }
         else
         {
             followerCount -= severity;
+            if (followerCount < 0)
+            {
+                followerCount = 0;
+            }
         }
+        UpdateUI();
+    }
+
+    void UpdateUI()
+    {
+        followerCountText.text = "Followers: " + followerCount.ToString();
+        // TODO: scale better
+        followerSlider.value = (float)followerCount / 100f;
     }
 }

@@ -6,9 +6,14 @@ public class Spawn1 : MonoBehaviour
 {
     public GameObject onePipe;
     public GameObject die;
-
+    public GameModel gameModel;
     private bool rising = false;
     private int cnt = 0;
+
+    void Start()
+    {
+
+    }
 
     public void OnMouseDown()
     {
@@ -18,29 +23,41 @@ public class Spawn1 : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (onePipe.transform.position.y > -70 && rising)
+        if (gameModel.nat1Counter <= 0)
         {
-            onePipe.GetComponent<Rigidbody>().useGravity = true;
-            for (int i = 0; i < cnt; i++)
-                SpawnDie();
-            cnt = 0;
-            rising = false;
+            print("No more nat 1s to spawn");
         }
-
-        if (onePipe.transform.position.y < -120)
+        else
         {
-            onePipe.GetComponent<Rigidbody>().useGravity = false;
-            onePipe.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
+            if (onePipe.transform.position.y > -70 && rising)
+            {
+                onePipe.GetComponent<Rigidbody>().useGravity = true;
+                for (int i = 0; i < cnt; i++)
+                    SpawnDie();
+                cnt = 0;
+                rising = false;
+            }
 
-        if (rising)
-            onePipe.GetComponent<Rigidbody>().AddForce(-Physics.gravity * onePipe.GetComponent<Rigidbody>().mass);
+
+            if (rising)
+                onePipe.GetComponent<Rigidbody>().AddForce(-Physics.gravity * onePipe.GetComponent<Rigidbody>().mass);
+        }
+        
+            if (onePipe.transform.position.y < -120)
+            {
+                onePipe.GetComponent<Rigidbody>().useGravity = false;
+                onePipe.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            }
     }
 
     private void SpawnDie()
     {
-        GameObject newDice = Instantiate(die, new Vector3(25.0f, 25.0f, 30.0f), die.transform.rotation);
-        newDice.GetComponent<Renderer>().material.SetFloat("_Number", 1);
-        newDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15000.0f, 0.0f), 0.0f, -15000.0f));
+        if (gameModel.nat1Counter > 0)
+        {
+            GameObject newDice = Instantiate(die, new Vector3(25.0f, 25.0f, 30.0f), die.transform.rotation);
+            newDice.GetComponent<Renderer>().material.SetFloat("_Number", 1);
+            newDice.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-15000.0f, 0.0f), 0.0f, -15000.0f));
+        }
+        gameModel.nat1Counter--;
     }
 }

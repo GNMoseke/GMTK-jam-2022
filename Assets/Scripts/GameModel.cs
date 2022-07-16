@@ -68,7 +68,7 @@ public class GameModel : MonoBehaviour
                 // 1) look up at leaderboard
                 // 2) click continue
                 betweenDays = true;
-                Camera.main.GetComponent<CameraRotate>().StartRotation(false);
+                Camera.main.GetComponent<CameraRotate>().StartRotation(false, true);
                 leaderboard.UpdateLeaderboard(followerCount);
                 ResetTable();
             }

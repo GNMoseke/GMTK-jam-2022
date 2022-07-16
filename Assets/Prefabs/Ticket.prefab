@@ -316,7 +316,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8721395317151678239}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000014901}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -325,7 +325,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1.2}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8721395317151678234
@@ -356,13 +356,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Dear Dice Daddy,
+  m_text: 'Please Dice Daddy!
 
-    If I roll really well here, we get to win vs the
-    BBEG!'
+    Today is my birthday, and I need to roll REALLY
+    HIGH to KILL the BOSS and look really cool in front of my friends!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
-  m_sharedMaterial: {fileID: 7720531730211973322, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
+  m_sharedMaterial: {fileID: 5166265283582368704, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -386,8 +386,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.6
+  m_fontSizeBase: 0.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

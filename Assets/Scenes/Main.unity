@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 99641612}
   - component: {fileID: 99641611}
   m_Layer: 5
-  m_Name: Follower Count
+  m_Name: Loyal Customr Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Followers: 0'
+  m_text: 'Loyal Customers: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
   m_sharedMaterial: {fileID: 7720531730211973322, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 847324169}
   - component: {fileID: 847324170}
   m_Layer: 5
-  m_Name: Follower Bar
+  m_Name: Loyal Customer Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3023,19 +3023,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Patt Percer: 191 Followers
+  m_text: 'Patt Percer: 191 Loyal Customers
 
-    Mulligan: 199 Followers
+    Mulligan: 199 Loyal Customers
 
-    Arnac: 167
-    Followers
+    Arnac:
+    167 Loyal Customers
 
-    Tiamat: 29 Followers
+    Tiamat: 29 Loyal Customers
 
-    YOU: 3 Followers
+    YOU: 3 Loyal Customers
 
-    Phil Pheaton:
-    -26 Followers
+    Phil
+    Pheaton: -26 Loyal Customers
 
 '
   m_isRightToLeft: 0
@@ -3064,8 +3064,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.38
-  m_fontSizeBase: 32.38
+  m_fontSize: 26.2
+  m_fontSizeBase: 26.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

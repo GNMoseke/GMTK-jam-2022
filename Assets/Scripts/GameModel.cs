@@ -148,7 +148,7 @@ public class GameModel : MonoBehaviour
 
     void UpdateUI()
     {
-        followerCountText.text = "Followers: " + followerCount.ToString();
+        followerCountText.text = "Loyal Customers: " + followerCount.ToString();
         // TODO: scale better
         followerSlider.value = (float)followerCount / 100f;
     }

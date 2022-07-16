@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 55017fe46782e1c4587a0b6ffbd71b4a
-  - enabled: 1
-    path: Assets/Scenes/SettingsMenu.unity
-    guid: 6616058201a6cd146abcd46876d4dac6
+    path: Assets/Scenes/DiceBoxSceene.unity
+    guid: e68d7bdf0d549c842b02cd8a7b9bc4e9
   m_configObjects: {}

@@ -13,7 +13,8 @@ public class TicketModel : MonoBehaviour
     bool below { get; set; }
     bool timerRunning = false;
     string plea { get; set; }
-    public float destroyDelay;
+    float coyoteTime;
+    bool pendingDestroy;
 
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
@@ -51,8 +52,9 @@ public class TicketModel : MonoBehaviour
 
         this.pleaTextObj.text = model.plea;
         this.timeToComplete = 10f;
-        this.destroyDelay = 0.15f;
+        this.coyoteTime = 0.5f;
         this.timeRemaining = timeToComplete;
+        this.pendingDestroy = false;
 
         this.timerRunning = true;
     }
@@ -81,32 +83,36 @@ public class TicketModel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Die")
         {
-            this.timerRunning = false;
-            // if we need below and the die is below what we need, succeed
-            if (this.below && collision.gameObject.GetComponent<DieModel>().value < this.rollNeeded)
-            {
-                OnTicketSucceeded(collision.gameObject);
-            }
-            // if we need above and the die is greater or equal to what we need, succeed
-            else if (!this.below && collision.gameObject.GetComponent<DieModel>().value >= this.rollNeeded)
-            {
-                OnTicketSucceeded(collision.gameObject);
-            }
-            else
-            {
-                OnTicketFailed(collision.gameObject);
-            }
+            StartCoroutine(CoyoteTime(collision.gameObject));
         }
     }
 
-    IEnumerator DestroyPause(GameObject die)
+    void OnCollisionExit(Collision collision)
     {
-        // hold for a split second for effect
-        yield return new WaitForSecondsRealtime(destroyDelay);
-        GameObject.Destroy(gameObject);
-        if (die != null)
+        this.pendingDestroy = false;
+    }
+
+    IEnumerator CoyoteTime(GameObject die)
+    {
+        this.pendingDestroy = true;
+        yield return new WaitForSecondsRealtime(coyoteTime);
+        if (this.pendingDestroy)
         {
-            GameObject.Destroy(die);
+            this.timerRunning = false;
+            // if we need below and the die is below what we need, succeed
+            if (this.below && die.GetComponent<DieModel>().value < this.rollNeeded)
+            {
+                OnTicketSucceeded(die);
+            }
+            // if we need above and the die is greater or equal to what we need, succeed
+            else if (!this.below && die.GetComponent<DieModel>().value >= this.rollNeeded)
+            {
+                OnTicketSucceeded(die);
+            }
+            else
+            {
+                OnTicketFailed(die);
+            }
         }
     }
 
@@ -114,12 +120,20 @@ public class TicketModel : MonoBehaviour
     {
         // TODO: play success effect
         ticketCompletion.Invoke(true, this.ticketSeverity);
-        StartCoroutine(DestroyPause(die));
+        GameObject.Destroy(gameObject);
+        if (die != null)
+        {
+            GameObject.Destroy(die);
+        }
     }
     public virtual void OnTicketFailed(GameObject die)
     {
         // TODO: play fail effect
         ticketCompletion.Invoke(false, this.ticketSeverity);
-        StartCoroutine(DestroyPause(die));
+        GameObject.Destroy(gameObject);
+        if (die != null)
+        {
+            GameObject.Destroy(die);
+        }
     }
 }

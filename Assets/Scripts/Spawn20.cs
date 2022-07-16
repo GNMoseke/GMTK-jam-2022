@@ -15,6 +15,7 @@ public class Spawn20 : MonoBehaviour
     {
         if (gameModel.nat20Counter > 0)
         {
+            twentyPipe.SetActive(true);
             twentyPipe.GetComponent<Rigidbody>().useGravity = true;
             cnt++;
         }
@@ -30,8 +31,14 @@ public class Spawn20 : MonoBehaviour
                 SpawnDie();
             cnt = 0;
         }
+        else
+        {
+            twentyPipe.SetActive(false);
+        }
         if (twentyPipe.transform.position.y > 150)
+        {
             twentyPipe.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 
     }
 

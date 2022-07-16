@@ -10,6 +10,7 @@ public class CameraRotate : MonoBehaviour
     public GameModel gameManager;
     private bool rotating = false;
     private bool towardsTable;
+    private bool isEndOfDay;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class CameraRotate : MonoBehaviour
                 // once we're done rotation, check if we were going towards the table and trigger the next day if so.
                 rotating = false;
                 // This should really be an event system, but time constraint so jank it is
-                if (this.towardsTable)
+                if (this.towardsTable && isEndOfDay)
                 {
                     gameManager.NextDay();
                 }
@@ -38,10 +39,11 @@ public class CameraRotate : MonoBehaviour
         }
     }
 
-    public void StartRotation(bool towardsTable)
+    public void StartRotation(bool towardsTable, bool isEndOfDay)
     {
         rotating = true;
         this.towardsTable = towardsTable;
+        this.isEndOfDay = isEndOfDay;
         if (towardsTable)
         {
             targetCameraAngle = new Vector3(56f, 0f, 0f);

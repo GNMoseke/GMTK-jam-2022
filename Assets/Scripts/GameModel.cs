@@ -14,6 +14,7 @@ public class GameModel : MonoBehaviour
 
     public TextAsset ticketsCSV;
     public GameObject ticketPrefab;
+    public GameObject dicePrefab;
     public List<TicketModel> tickets { get; set; }
     public float dailyTicketInterval { get; set; }
 
@@ -42,6 +43,7 @@ public class GameModel : MonoBehaviour
 
         ticketTimer = 0;
         numActiveTickets = 1;
+        DiceManager.GenerateDice(30, dicePrefab);
     }
 
     // Update is called once per frame

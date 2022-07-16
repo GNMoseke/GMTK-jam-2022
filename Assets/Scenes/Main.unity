@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9afeacb32dcc04149ac96ca4e4a43554, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1414.1854
+      value: 1008.1587
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9afeacb32dcc04149ac96ca4e4a43554, type: 3}
       propertyPath: m_LocalScale.z
@@ -269,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9afeacb32dcc04149ac96ca4e4a43554, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.3
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9afeacb32dcc04149ac96ca4e4a43554, type: 3}
       propertyPath: m_LocalRotation.w
@@ -675,7 +675,6 @@ GameObject:
   - component: {fileID: 2072178375}
   - component: {fileID: 2072178374}
   - component: {fileID: 2072178373}
-  - component: {fileID: 2072178377}
   - component: {fileID: 2072178376}
   m_Layer: 0
   m_Name: Main Camera
@@ -763,20 +762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceAmount: 500
---- !u!114 &2072178377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072178372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c18045f4dfc99446b8883e898e6c5f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dice: {fileID: 2923130460937422453, guid: 9ec0619fb99ff6140a2dbde239da4d6c, type: 3}
-  numDice: 30
 --- !u!1 &2128291243
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ticketsCSV: {fileID: 4900000, guid: 56d1797a8ccc7b649aaf554430e2556d, type: 3}
   ticketPrefab: {fileID: 8721395317407531015, guid: 5c22a0aa17f1a2447a4c66d58fb03643, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: 9ec0619fb99ff6140a2dbde239da4d6c, type: 3}
   ticketDispenser: {fileID: 1872111147}
   ticketSpawnPosition: {fileID: 1010659690}
   ticketTimer: 0

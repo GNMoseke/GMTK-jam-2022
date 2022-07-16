@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1697810645}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: OpenSettingsMenu
+        m_MethodName: OnClickSettingsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -1174,7 +1174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -1525,7 +1525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -1622,7 +1622,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1697810645}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: OnClickStartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1800,7 +1800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1697810645}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: OnClickQuitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -2158,7 +2158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}
@@ -2716,7 +2716,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Deus Fax Machina
+  m_text: "Random \nNumber \nGuy"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2889,7 +2889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab762025ddc22c488f6131d70d23557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dicePrefab: {fileID: 8745860239455336394, guid: c674d67ead135fe4e977bc5268523ceb, type: 3}
+  dicePrefab: {fileID: 2923130460937422453, guid: d6de0b8702e9fd2449ee36fc1c8257eb, type: 3}
   diceMaterials:
   - {fileID: 2100000, guid: 9afc23055240e0543a44b477a04511b9, type: 2}
   - {fileID: 2100000, guid: 2fec8902ff026eb48b05a79fcc70a1de, type: 2}

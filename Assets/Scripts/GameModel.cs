@@ -34,15 +34,14 @@ public class GameModel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        int dailyTickets = (TICKETS * day);
-        int randomDice = dailyTickets-nat1Counter-nat20Counter
+        nat20Counter = 5;
+        nat1Counter = 5;
         day = 1;
+        int dailyTickets = (TICKETS * day);
+        int randomDice = dailyTickets - nat1Counter - nat20Counter;
         dayTimer = DAY_LENGTH;
-        dailyTicketInterval = DAY_LENGTH / dailyTicket;
+        dailyTicketInterval = DAY_LENGTH / dailyTickets;
         followerCount = 3;
-        shootForce = 1000f
-        nat20Counter = 5
-        nat1Counter = 5
         tickets = TicketParser.ReadTickets(ticketsCSV);
         Debug.Log(tickets.Count);
         GenerateTicket(tickets[0]);

@@ -24,6 +24,7 @@ public class GameModel : MonoBehaviour
 
     public GameObject ticketDispenser;
     public GameObject ticketSpawnPosition;
+    public Leaderboard leaderboard;
 
     public float ticketTimer;
 
@@ -68,6 +69,7 @@ public class GameModel : MonoBehaviour
                 // 2) click continue
                 betweenDays = true;
                 Camera.main.GetComponent<CameraRotate>().StartRotation(false);
+                leaderboard.UpdateLeaderboard(followerCount);
                 ResetTable();
             }
         }

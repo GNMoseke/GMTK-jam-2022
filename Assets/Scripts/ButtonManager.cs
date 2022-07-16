@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    public void QuitGame()
+
+    public void OnClickSettingsButton()
+    {
+        SceneManager.LoadSceneAsync("SettingsMenu");
+    }
+
+    public void OnClickStartButton()
+    {
+        SceneManager.LoadSceneAsync("Main");
+    }
+
+    public void OnClickQuitButton()
     {
         Application.Quit();
-    }
-
-    public void StartGame()
-    {
-        // TODO: WHEN A MAIN SCENE IS IN PLACE, ADD IT HERE!
-        //SceneManager.LoadScene("");
-    }
-
-    public void OpenSettingsMenu()
-    {
-        SceneManager.LoadScene("SettingsMenu");
     }
 }

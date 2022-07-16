@@ -18,8 +18,6 @@ public class GameModel : MonoBehaviour
     public List<TicketModel> tickets { get; set; }
     public float dailyTicketInterval { get; set; }
 
-    public List<DieModel> dice { get; set; }
-
     public int followerCount { get; set; }
 
     public GameObject ticketDispenser;
@@ -28,14 +26,21 @@ public class GameModel : MonoBehaviour
     public float ticketTimer;
 
     public int numActiveTickets;
-    public float shootForce = 1000f;
+    public float shootForce;
+
+    public int nat20Counter;
+    public int nat1Counter;
 
     // Use this for initialization
     void Start()
     {
+        nat20Counter = 5;
+        nat1Counter = 5;
         day = 1;
+        int dailyTickets = (TICKETS * day);
+        int randomDice = dailyTickets - nat1Counter - nat20Counter;
         dayTimer = DAY_LENGTH;
-        dailyTicketInterval = DAY_LENGTH / (TICKETS * day);
+        dailyTicketInterval = DAY_LENGTH / dailyTickets;
         followerCount = 3;
         tickets = TicketParser.ReadTickets(ticketsCSV);
         Debug.Log(tickets.Count);
@@ -43,7 +48,7 @@ public class GameModel : MonoBehaviour
 
         ticketTimer = 0;
         numActiveTickets = 1;
-        DiceManager.GenerateDice(30, dicePrefab);
+        DiceManager.GenerateDice(randomDice, dicePrefab);
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ public class TicketModel : MonoBehaviour
     bool below { get; set; }
     bool timerRunning = false;
     string plea { get; set; }
+    public float destroyDelay;
 
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
@@ -37,7 +38,7 @@ public class TicketModel : MonoBehaviour
 
         this.pleaTextObj = this.GetComponentInChildren<TMPro.TMP_Text>();
         Debug.Log(pleaTextObj);
-        // FIXME multiple images might screw this
+        // this is some baaaad code but its a game jam :)
         List<Image> images = new List<Image>(this.GetComponentsInChildren<Image>());
         foreach (Image img in images)
         {
@@ -50,6 +51,7 @@ public class TicketModel : MonoBehaviour
 
         this.pleaTextObj.text = model.plea;
         this.timeToComplete = 10f;
+        this.destroyDelay = 0.15f;
         this.timeRemaining = timeToComplete;
 
         this.timerRunning = true;
@@ -70,45 +72,54 @@ public class TicketModel : MonoBehaviour
             {
                 timerRunning = false;
                 Debug.Log("ticket timed out");
-                OnTicketFailed();
+                OnTicketFailed(null);
             }
         }
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        // TODO: magic string
         if (collision.gameObject.tag == "Die")
         {
-            print("djklasdjaslk");
-
             this.timerRunning = false;
             // if we need below and the die is below what we need, succeed
             if (this.below && collision.gameObject.GetComponent<DieModel>().value < this.rollNeeded)
             {
-                OnTicketSucceeded();
+                OnTicketSucceeded(collision.gameObject);
             }
             // if we need above and the die is greater or equal to what we need, succeed
             else if (!this.below && collision.gameObject.GetComponent<DieModel>().value >= this.rollNeeded)
             {
-                OnTicketSucceeded();
+                OnTicketSucceeded(collision.gameObject);
             }
             else
             {
-                OnTicketFailed();
+                OnTicketFailed(collision.gameObject);
             }
         }
     }
 
-    protected virtual void OnTicketSucceeded()
+    IEnumerator DestroyPause(GameObject die)
     {
-        // TODO: play success anim & destroy self/die
-        ticketCompletion.Invoke(true, this.ticketSeverity);
-    }
-    protected virtual void OnTicketFailed()
-    {
-        // TODO: play fail anim & destroy self/die
-        ticketCompletion.Invoke(false, this.ticketSeverity);
+        // hold for a split second for effect
+        yield return new WaitForSecondsRealtime(destroyDelay);
         GameObject.Destroy(gameObject);
+        if (die != null)
+        {
+            GameObject.Destroy(die);
+        }
+    }
+
+    protected virtual void OnTicketSucceeded(GameObject die)
+    {
+        // TODO: play success effect
+        ticketCompletion.Invoke(true, this.ticketSeverity);
+        StartCoroutine(DestroyPause(die));
+    }
+    public virtual void OnTicketFailed(GameObject die)
+    {
+        // TODO: play fail effect
+        ticketCompletion.Invoke(false, this.ticketSeverity);
+        StartCoroutine(DestroyPause(die));
     }
 }

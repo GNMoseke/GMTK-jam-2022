@@ -39,6 +39,7 @@ public class DragDice : MonoBehaviour
         if (selectedRigidbody)
         {
             Vector3 mousePositionOffset = targetCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, selectionDistance)) - originalScreenTargetPosition;
+            mousePositionOffset.y = 2.0f;
             selectedRigidbody.velocity = (originalRigidbodyPos + mousePositionOffset - selectedRigidbody.transform.position) * forceAmount * Time.deltaTime;
         }
     }

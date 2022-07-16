@@ -21,21 +21,50 @@ public class GameModel : MonoBehaviour
 
     public int followerCount { get; set; }
 
+    public GameObject ticketDispenser;
+    public GameObject ticketSpawnPosition;
+
+    public float ticketTimer;
+
+    public int numActiveTickets;
+
     // Use this for initialization
     void Start()
     {
-        day = 1;
+        day = 3;
         dayTimer = DAY_LENGTH;
         dailyTicketInterval = DAY_LENGTH / (TICKETS * day);
         followerCount = 3;
         tickets = TicketParser.ReadTickets(ticketsCSV);
         Debug.Log(tickets.Count);
         GenerateTicket(tickets[0]);
+
+        ticketTimer = 0;
+        numActiveTickets = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (dayTimer > 0)
+        {
+            this.dayTimer -= Time.deltaTime;
+            ticketTimer += Time.deltaTime;
+            if (ticketTimer >= dailyTicketInterval)
+            {
+                GenerateTicket(tickets[numActiveTickets]);
+                numActiveTickets++;
+                ticketTimer = 0;
+            }
+        }
+        else // DAY FINISHED
+        {
+            // 1) look up at leaderboard
+            // 2) click continue
+
+            ResetTable();
+            NextDay();
+        }
         /*
         dec dayTimer
         if(dayTimer > 0)
@@ -64,7 +93,7 @@ public class GameModel : MonoBehaviour
 
     public void ResetTable()
     {
-
+        // TODO: re-initialize dice and add extra nat 20's and nat 1's (based on performance of previous day)
     }
 
     public void NextDay()
@@ -75,8 +104,23 @@ public class GameModel : MonoBehaviour
 
     public void GenerateTicket(TicketModel ticket)
     {
-        GameObject ticketGameObj = Instantiate(ticketPrefab);
+        GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position, ticketDispenser.transform.rotation);
+        ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.forward * 2000f);
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
+
+        ticketGameObj.GetComponent<TicketModel>().ticketCompletion += TicketComplete;
+    }
+
+    public void TicketComplete(bool success, int severity)
+    {
+        if (success)
+        {
+            followerCount += severity;
+        } 
+        else
+        {
+            followerCount -= severity;
+        }
     }
 }

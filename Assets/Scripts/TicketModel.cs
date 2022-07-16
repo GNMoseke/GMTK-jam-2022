@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// TODO: for my own sanity split these later
-public delegate void NotifyTicketComplete(bool success, int severity);
-
 public class TicketModel : MonoBehaviour
 {
     // 1 2 or 3. Was an enum but overcomplicated for something so simple
@@ -20,7 +17,7 @@ public class TicketModel : MonoBehaviour
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
 
-
+    public delegate void NotifyTicketComplete(bool success, int severity);
     public event NotifyTicketComplete ticketCompletion;
 
     public TicketModel(string plea, int rollNeeded, bool below, int severity)
@@ -110,5 +107,6 @@ public class TicketModel : MonoBehaviour
     {
         // TODO: play fail anim & destroy self/die
         ticketCompletion.Invoke(false, this.ticketSeverity);
+        GameObject.Destroy(gameObject);
     }
 }

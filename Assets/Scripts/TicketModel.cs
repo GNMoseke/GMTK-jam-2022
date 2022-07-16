@@ -78,8 +78,10 @@ public class TicketModel : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         // TODO: magic string
-        if (collision.gameObject.tag == "die")
+        if (collision.gameObject.tag == "Die")
         {
+            print("djklasdjaslk");
+
             this.timerRunning = false;
             // if we need below and the die is below what we need, succeed
             if (this.below && collision.gameObject.GetComponent<DieModel>().value < this.rollNeeded)

@@ -27,11 +27,12 @@ public class GameModel : MonoBehaviour
     public float ticketTimer;
 
     public int numActiveTickets;
+    public float shootForce = 1000f;
 
     // Use this for initialization
     void Start()
     {
-        day = 3;
+        day = 1;
         dayTimer = DAY_LENGTH;
         dailyTicketInterval = DAY_LENGTH / (TICKETS * day);
         followerCount = 3;
@@ -104,8 +105,8 @@ public class GameModel : MonoBehaviour
 
     public void GenerateTicket(TicketModel ticket)
     {
-        GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position, ticketDispenser.transform.rotation);
-        ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.forward * 2000f);
+        GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position,  Quaternion.Euler(0, -35f, 0));
+        ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.up * shootForce);
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
 

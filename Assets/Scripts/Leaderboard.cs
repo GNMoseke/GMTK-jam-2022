@@ -32,12 +32,12 @@ public class Leaderboard : MonoBehaviour
         foreach(var item in sortedLeaderboard) {
             if (item.Key == "YOU") 
             {
-                leaderboardUI.text += $"<color=#FF0000>YOU: {item.Value} Loyal Customers</color>\n";
-                pauseLeaderboardUI.text += $"<color=#FF0000>YOU: {item.Value} Loyal Customers</color>\n";
+                leaderboardUI.text += $"<color=#FF0000>YOU: {item.Value} Loyal Customers</color>\n\n";
+                pauseLeaderboardUI.text += $"<color=#FF0000>YOU: {item.Value} Loyal Customers</color>\n\n";
             }
             else {
-                leaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n";
-                pauseLeaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n";
+                leaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n\n";
+                pauseLeaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n\n";
                 // Add some random change for next go round as well
                 int randomAddition = Random.Range(-10, 10);
                 int newVal = Mathf.Clamp(item.Value + randomAddition, 0, 99);

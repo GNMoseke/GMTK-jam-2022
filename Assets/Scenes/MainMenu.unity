@@ -3093,6 +3093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialCanvas: {fileID: 2105479947}
+  mixer: {fileID: 0}
 --- !u!4 &1697810646
 Transform:
   m_ObjectHideFlags: 0

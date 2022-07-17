@@ -13,17 +13,19 @@ public class Leaderboard : MonoBehaviour
     void Start()
     {
         leaderboard = new Dictionary<string, int>() {
-            {"Patt Percer", 200},
+            {"Patt Percer", 99},
             {"YOU", 3},
-            {"Mulligan", 200},
-            {"Arnac", 150},
-            {"Tiamat", 30},
-            {"Phil Pheaton", -20},
+            {"Mulligan", 99},
+            {"Arnac", 77},
+            {"Tiamat", 12},
+            {"Phil Pheaton", 0},
         };
     }
 
     public void UpdateLeaderboard(int playerFollowers) {
+        Dictionary<string, int> tempLeaderboard = new Dictionary<string, int>();
         leaderboard["YOU"] = playerFollowers;
+        tempLeaderboard["YOU"] = playerFollowers;
         leaderboardUI.text = "";
         pauseLeaderboardUI.text = "";
         var sortedLeaderboard = from entry in leaderboard orderby entry.Value descending select entry;
@@ -34,9 +36,14 @@ public class Leaderboard : MonoBehaviour
                 pauseLeaderboardUI.text += $"<color=#FF0000>YOU: {item.Value} Loyal Customers</color>\n";
             }
             else {
-                leaderboardUI.text += $"{item.Key}: {item.Value + Random.Range(-20, 20)} Loyal Customers\n";
-                pauseLeaderboardUI.text += $"{item.Key}: {item.Value + Random.Range(-20, 20)} Loyal Customers\n";
+                leaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n";
+                pauseLeaderboardUI.text += $"{item.Key}: {item.Value} Loyal Customers\n";
+                // Add some random change for next go round as well
+                int randomAddition = Random.Range(-10, 10);
+                int newVal = Mathf.Clamp(item.Value + randomAddition, 0, 99);
+                tempLeaderboard[item.Key] = newVal;
             }
         }
+        leaderboard = tempLeaderboard;
     }
 }

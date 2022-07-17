@@ -7,19 +7,20 @@ using UnityEngine.SceneManagement;
 
 public class GameModel : MonoBehaviour
 {
-    // start at 20, increas by 10 each day
-    const int TICKETS = 20;
-    const float DAY_LENGTH = 120;
-    const int VICTORY_COUNT = 200;
+    // start at x, increase by 10 each day
+    const int INITIAL_TICKETS = 15;
+    const float ROUND_LENGTH = 90;
+    const int VICTORY_COUNT = 100;
 
-    public int day { get; set; }
-    public float dayTimer { get; set; }
+    public int round { get; set; }
+    public float roundTimer { get; set; }
 
     public TextAsset ticketsCSV;
     public GameObject ticketPrefab;
     public GameObject dicePrefab;
     public List<TicketModel> tickets { get; set; }
     public float dailyTicketInterval { get; set; }
+    private HashSet<GameObject> activeTickets;
 
     public int followerCount { get; set; }
 
@@ -31,6 +32,8 @@ public class GameModel : MonoBehaviour
     public GameObject diceDestroySmoke;
     public Leaderboard leaderboard;
     public TMPro.TMP_Text followerText;
+    public TMPro.TMP_Text ticketsRemainingText;
+
     public AudioSource printerClip;
     public GameObject victoryBoard;
 
@@ -39,32 +42,32 @@ public class GameModel : MonoBehaviour
     int ticketIndex = 0;
     public float shootForce;
 
-    int nat20Counter;
-    int nat1Counter;
+    private int roundTicketsRemaining;
 
-
-    public bool betweenDays;
+    public bool betweenRounds;
 
     // Use this for initialization
     void Start()
     {
+        activeTickets = new HashSet<GameObject>();
         tickets = TicketParser.ReadTickets(ticketsCSV);
         // randomize ticket order
         Shuffle(tickets);
-        day = 0;
+        round = 0;
         followerCount = 3;
         UpdateUI();
         NextDay();
+        this.victoryBoard.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!betweenDays)
+        if (!betweenRounds)
         {
-            if (dayTimer > 0)
+            // there's still tickets in the queue, tick the timer to fire the next one
+            if (roundTicketsRemaining > 0)
             {
-                this.dayTimer -= Time.deltaTime;
                 ticketTimer += Time.deltaTime;
                 if (ticketTimer >= dailyTicketInterval)
                 {
@@ -72,13 +75,18 @@ public class GameModel : MonoBehaviour
                     GenerateTicket(tickets[ticketIndex]);
                     ticketIndex++;
                     ticketTimer = 0;
+                    roundTicketsRemaining--;
+                    if (roundTicketsRemaining >= 0)
+                    {
+                        ticketsRemainingText.text = roundTicketsRemaining.ToString();
+                    }
                 }
             }
-            else // DAY FINISHED
+            else // ROUND FINISHED
             {
-                // 1) look up at leaderboard
-                // 2) click continue
-                betweenDays = true;
+                // if there are still active tickets, wait for those to be done before we move on
+                if (activeTickets.Count == 0) {
+                betweenRounds = true;
                 Camera.main.GetComponent<CameraRotate>().StartRotation(false, true);
                 // check if the player just won
                 if (followerCount > VICTORY_COUNT)
@@ -87,42 +95,52 @@ public class GameModel : MonoBehaviour
                     victoryBoard.SetActive(true);
                 }
                 ResetTable();
+                }
             }
         }
     }
 
     public void ResetTable()
     {
-        DeleteRemainingDice();
+        DeleteRemainingDiceAndVFX();
         // Activate scoreboard, pause game
         Time.timeScale = 0;
     }
 
 
-    private void DeleteRemainingDice()
+    private void DeleteRemainingDiceAndVFX()
     {
+        // who likes array concatenation anyways
         GameObject[] remainingDice = GameObject.FindGameObjectsWithTag("Die");
+        GameObject[] remainingVFX = GameObject.FindGameObjectsWithTag("VFX");
         foreach (GameObject die in remainingDice)
         {
             GameObject.Destroy(die);
+        }
+        foreach (GameObject vfx in remainingVFX)
+        {
+            GameObject.Destroy(vfx);
         }
     }
 
     public void NextDay()
     {
-        day++;
-        dayTimer = DAY_LENGTH;
-        nat20Counter = 4 + day;
-        nat1Counter = 4 + day;
-        int dailyTickets = (TICKETS + (10 * (day - 1)));
-        int randomDice = dailyTickets - nat1Counter - nat20Counter;
-        dayTimer = DAY_LENGTH;
-        dailyTicketInterval = DAY_LENGTH / dailyTickets;
-        ticketTimer = dailyTicketInterval - 1f;
+        activeTickets.Clear();
+        AudioSource musicBG = this.GetComponent<AudioSource>();
+        musicBG.time = 0f;
+        musicBG.Play();
+        round++;
+        roundTimer = ROUND_LENGTH;
+        int specialDiceCounter = 4 + round;
+        roundTicketsRemaining = (INITIAL_TICKETS + (10 * (round - 1)));
+        int randomDice = roundTicketsRemaining - 2*specialDiceCounter;
+        roundTimer = ROUND_LENGTH;
+        dailyTicketInterval = ROUND_LENGTH / roundTicketsRemaining;
+        ticketTimer = dailyTicketInterval;
 
         Time.timeScale = 1f;
-        betweenDays = false;
-        DiceManager.GenerateDice(randomDice, dicePrefab);
+        betweenRounds = false;
+        DiceManager.GenerateDice(randomDice, dicePrefab, specialDiceCounter);
     }
     public void GenerateTicket(TicketModel ticket)
     {
@@ -131,11 +149,12 @@ public class GameModel : MonoBehaviour
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
         printerClip.Play();
+        activeTickets.Add(ticketGameObj);
 
         ticketGameObj.GetComponent<TicketModel>().ticketCompletion += TicketComplete;
     }
 
-    public void TicketComplete(bool success, int severity, Vector3 loc)
+    public void TicketComplete(bool success, int severity, Vector3 loc, GameObject completedTicket)
     {
         if (success)
         {
@@ -151,10 +170,12 @@ public class GameModel : MonoBehaviour
                 followerCount = 0;
             }
         }
+        activeTickets.Remove(completedTicket);
         Instantiate(diceDestroySmoke, loc, Quaternion.identity);
         Instantiate(diceDestroySparks, loc, Quaternion.identity);
         UpdateUI();
     }
+
 
     public void ReturnToMenu()
     {
@@ -165,8 +186,6 @@ public class GameModel : MonoBehaviour
     {
         leaderboard.UpdateLeaderboard(followerCount);
         followerText.text = followerCount.ToString();
-        // TODO: scale better
-        //followerSlider.value = (float)followerCount / 100f;
     }
 
     private static System.Random rng = new System.Random();

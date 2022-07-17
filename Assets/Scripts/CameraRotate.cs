@@ -11,6 +11,8 @@ public class CameraRotate : MonoBehaviour
     private bool rotating = false;
     private bool towardsTable;
     private bool isEndOfDay;
+    public GameObject leaderboard;
+    public GameObject pauseMenu;
 
     void Start()
     {
@@ -45,7 +47,8 @@ public class CameraRotate : MonoBehaviour
 
     public void StartRotation(bool towardsTable, bool isEndOfDay)
     {
-        //print("ROTATION STARTED");
+        leaderboard.SetActive(isEndOfDay);
+        pauseMenu.SetActive(!isEndOfDay);
         rotating = true;
         this.towardsTable = towardsTable;
         this.isEndOfDay = isEndOfDay;

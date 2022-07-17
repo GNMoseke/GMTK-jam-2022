@@ -17,11 +17,10 @@ public class TicketModel : MonoBehaviour
     bool timerRunning = false;
     string plea { get; set; }
     float coyoteTime;
-
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
 
-    public delegate void NotifyTicketComplete(bool success, int severity);
+    public delegate void NotifyTicketComplete(bool success, int severity, Vector3 loc);
     public event NotifyTicketComplete ticketCompletion;
 
     public TicketModel(string plea, int rollNeeded, bool below, int severity)
@@ -121,6 +120,8 @@ public class TicketModel : MonoBehaviour
         if (die != null)
         {
             this.timerRunning = false;
+            var temp = (this.below) ? "MUST BE LOWER THAN" : "MUST BE HIGHER OR EQUAL TO";
+            Debug.Log($"{temp} {this.rollNeeded}");
             // if we need below and the die is below what we need, succeed
             if (this.below && die.GetComponent<DieModel>().value < this.rollNeeded)
             {
@@ -140,8 +141,7 @@ public class TicketModel : MonoBehaviour
 
     protected virtual void OnTicketSucceeded(GameObject die)
     {
-        // TODO: play success effect
-        ticketCompletion.Invoke(true, this.ticketSeverity);
+        ticketCompletion.Invoke(true, this.ticketSeverity, this.transform.position);
         GameObject.Destroy(gameObject);
         if (die != null)
         {
@@ -150,8 +150,7 @@ public class TicketModel : MonoBehaviour
     }
     public virtual void OnTicketFailed(GameObject die)
     {
-        // TODO: play fail effect
-        ticketCompletion.Invoke(false, this.ticketSeverity);
+        ticketCompletion.Invoke(false, this.ticketSeverity, this.transform.position);
         GameObject.Destroy(gameObject);
         if (die != null)
         {

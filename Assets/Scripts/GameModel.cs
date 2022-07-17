@@ -17,13 +17,13 @@ public class GameModel : MonoBehaviour
     public GameObject dicePrefab;
     public List<TicketModel> tickets { get; set; }
     public float dailyTicketInterval { get; set; }
-    public Slider followerSlider;
-    public TMPro.TMP_Text followerCountText;
 
     public int followerCount { get; set; }
 
     public GameObject ticketDispenser;
     public GameObject ticketSpawnPosition;
+    public GameObject successParticles;
+    public GameObject failParticles;
     public Leaderboard leaderboard;
 
     public float ticketTimer;
@@ -69,7 +69,6 @@ public class GameModel : MonoBehaviour
                 // 2) click continue
                 betweenDays = true;
                 Camera.main.GetComponent<CameraRotate>().StartRotation(false, true);
-                leaderboard.UpdateLeaderboard(followerCount);
                 ResetTable();
             }
         }
@@ -128,14 +127,16 @@ public class GameModel : MonoBehaviour
         ticketGameObj.GetComponent<TicketModel>().ticketCompletion += TicketComplete;
     }
 
-    public void TicketComplete(bool success, int severity)
+    public void TicketComplete(bool success, int severity, Vector3 loc)
     {
         if (success)
         {
+            GameObject.Instantiate(successParticles, loc, Quaternion.identity);
             followerCount += severity;
         }
         else
         {
+            GameObject.Instantiate(failParticles, loc, Quaternion.identity);
             followerCount -= severity;
             if (followerCount < 0)
             {
@@ -147,8 +148,9 @@ public class GameModel : MonoBehaviour
 
     void UpdateUI()
     {
-        followerCountText.text = "Loyal Customers: " + followerCount.ToString();
+        leaderboard.UpdateLeaderboard(followerCount);
+
         // TODO: scale better
-        followerSlider.value = (float)followerCount / 100f;
+        //followerSlider.value = (float)followerCount / 100f;
     }
 }

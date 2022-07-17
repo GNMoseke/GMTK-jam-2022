@@ -40,13 +40,13 @@ public class DragDice : MonoBehaviour
         if (selectedRigidbody)
         {
             Vector3 mousePositionOffset = targetCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, selectionDistance)) - originalScreenTargetPosition;
-            mousePositionOffset.y = 2.0f;
+            mousePositionOffset.y = 3.0f;
             selectedRigidbody.velocity = (originalRigidbodyPos + mousePositionOffset - selectedRigidbody.transform.position) * forceAmount * Time.deltaTime;
             if (selectedRigidbody.gameObject.tag == "Ticket")
             {
                 Vector3 currentTicketAngle = selectedRigidbody.gameObject.transform.eulerAngles;
                 Vector3 newTicketAngle = new Vector3(
-                        Mathf.LerpAngle(currentTicketAngle.x, 0f, Time.deltaTime * ticketRotationSpeed),
+                        currentTicketAngle.x,
                         Mathf.LerpAngle(currentTicketAngle.y, 0f, Time.deltaTime * ticketRotationSpeed),
                         Mathf.LerpAngle(currentTicketAngle.z, 0f, Time.deltaTime * ticketRotationSpeed)
                     );

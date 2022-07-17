@@ -8,6 +8,8 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject Leaderboard;
+    [SerializeField] GameModel gameManager;
+    [SerializeField] TMPro.TMP_Text pauseLeaderboardText;
     public GameObject pipe;
 
     void OnGUI()

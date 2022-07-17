@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 public class GameModel : MonoBehaviour
 {
-    const int TICKETS = 30;
-    const float DAY_LENGTH = 180;
+    const int TICKETS = 20;
+    const float DAY_LENGTH = 120;
 
     public int day { get; set; }
     public float dayTimer { get; set; }
@@ -24,6 +24,8 @@ public class GameModel : MonoBehaviour
     public GameObject ticketSpawnPosition;
     public GameObject successParticles;
     public GameObject failParticles;
+    public GameObject diceDestroySparks;
+    public GameObject diceDestroySmoke;
     public Leaderboard leaderboard;
     public TMPro.TMP_Text followerText;
     public AudioSource printerClip;
@@ -99,10 +101,9 @@ public class GameModel : MonoBehaviour
     {
         day++;
         dayTimer = DAY_LENGTH;
-        int modifier = CalculateAdditionalDiceModifier();
-        nat20Counter = 5 * day + modifier;
-        nat1Counter = 5 * day + modifier;
-        int dailyTickets = (TICKETS * day);
+        nat20Counter = 4 + day;
+        nat1Counter = 4 + day;
+        int dailyTickets = (TICKETS + (10 * day));
         int randomDice = dailyTickets - nat1Counter - nat20Counter;
         dayTimer = DAY_LENGTH;
         dailyTicketInterval = DAY_LENGTH / dailyTickets;
@@ -113,14 +114,6 @@ public class GameModel : MonoBehaviour
         betweenDays = false;
         DiceManager.GenerateDice(randomDice, dicePrefab);
     }
-
-    private int CalculateAdditionalDiceModifier()
-    {
-        // TODO: scale better
-        print("GAINED " + (followerCount / 10) * (day - 1));
-        return (followerCount / 10) * (day - 1);
-    }
-
     public void GenerateTicket(TicketModel ticket)
     {
         GameObject ticketGameObj = Instantiate(ticketPrefab, ticketSpawnPosition.transform.position, Quaternion.Euler(0, -35f, 0));
@@ -136,6 +129,7 @@ public class GameModel : MonoBehaviour
     {
         if (success)
         {
+            print("PASSED");
             GameObject.Instantiate(successParticles, loc, Quaternion.identity);
             followerCount += severity;
         }
@@ -148,6 +142,8 @@ public class GameModel : MonoBehaviour
                 followerCount = 0;
             }
         }
+        Instantiate(diceDestroySmoke, loc, Quaternion.identity);
+        Instantiate(diceDestroySparks, loc, Quaternion.identity);
         UpdateUI();
     }
 

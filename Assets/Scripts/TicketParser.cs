@@ -6,12 +6,14 @@ using System.IO;
 
 public class TicketParser : MonoBehaviour
 {
-    public static List<TicketModel> ReadTickets(TextAsset ticketCSV) {
+    public static List<TicketModel> ReadTickets(TextAsset ticketCSV)
+    {
         List<TicketModel> tickets = new List<TicketModel>();
         List<string> ticketRows = new List<string>(ticketCSV.text.Split('\n'));
         // drop header row
         ticketRows.RemoveAt(0);
-        foreach(string ticketRaw in ticketRows) {
+        foreach (string ticketRaw in ticketRows)
+        {
             string[] components = ticketRaw.Split(',');
 
             int rollNeeded = int.Parse(components[1]);
@@ -20,7 +22,36 @@ public class TicketParser : MonoBehaviour
 
             string plea = components[0].Replace('_', '\n');
 
-            tickets.Add(new TicketModel(plea, rollNeeded, below, severity));
+            // Add some color tags to the plea
+            // I should use regex for this but im lazy and running out of time
+            string[] pleaComponents = plea.Split(' ');
+            string pleaWithColor = "";
+            foreach (string word in pleaComponents)
+            {
+                switch (word)
+                {
+                    case "NOT":
+                        pleaWithColor += $"<color=#FF0000>{word}</color> ";
+                        break;
+                    case "REALLY":
+                    case "LOW":
+                    case "HIGH":
+                        pleaWithColor += $"<color=#0dabe5>{word}</color> ";
+                        break;
+                    case "KILL":
+                    case "DIE":
+                    case "BOSS":
+                    case "EVERYTHING":
+                    case "RESURRECT":
+                        pleaWithColor += $"<color=#eaae15>{word}</color> ";
+                        break;
+                    default:
+                        pleaWithColor += $"{word} ";
+                        break;
+                }
+            }
+
+            tickets.Add(new TicketModel(pleaWithColor, rollNeeded, below, severity));
             print(components[0]);
         }
 

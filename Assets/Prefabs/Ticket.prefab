@@ -356,10 +356,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Please Dice Daddy!
+  m_text: 'Please RNGenie!
 
-    Today is my birthday, and I need to roll REALLY
-    HIGH to KILL the BOSS and look really cool in front of my friends!'
+    I must <color=#FF0000>NOT</color> roll LOW when trying
+    to convince the guard that the queen asked me to bring her a lit stick of dynamite!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
   m_sharedMaterial: {fileID: 5166265283582368704, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
@@ -526,8 +526,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.24046671, z: 1}
-  m_Center: {x: 0, y: 0.37976697, z: 0}
+  m_Size: {x: 0.9863717, y: 0.5984187, z: 0.98917085}
+  m_Center: {x: 0, y: 0.41459864, z: 0}
 --- !u!54 &6393231296957106548
 Rigidbody:
   m_ObjectHideFlags: 0

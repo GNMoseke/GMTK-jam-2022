@@ -41,6 +41,7 @@ public class CameraRotate : MonoBehaviour
 
     public void StartRotation(bool towardsTable, bool isEndOfDay)
     {
+        //print("ROTATION STARTED");
         rotating = true;
         this.towardsTable = towardsTable;
         this.isEndOfDay = isEndOfDay;

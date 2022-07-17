@@ -92,7 +92,6 @@ public class GameModel : MonoBehaviour
         }
     }
 
-    // TODO: called by continue button on board
     public void NextDay()
     {
         day++;

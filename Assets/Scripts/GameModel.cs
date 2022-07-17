@@ -74,6 +74,11 @@ public class GameModel : MonoBehaviour
                     print($"using ticket at idx {ticketIndex}");
                     GenerateTicket(tickets[ticketIndex]);
                     ticketIndex++;
+                    // ran out of tickets, reshuffle and start again
+                    if (ticketIndex == tickets.Count) {
+                        Shuffle(tickets);
+                        ticketIndex = 0;
+                    }
                     ticketTimer = 0;
                     roundTicketsRemaining--;
                     if (roundTicketsRemaining >= 0)

@@ -6843,7 +6843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919954c29c0b5424fb6c0ba5e5bd9011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticketsCSV: {fileID: 4900000, guid: dcb3c4e15e5149144b6c30448b92c09e, type: 3}
+  ticketsCSV: {fileID: 4900000, guid: 0945a3b3a46416642ae132011ce83563, type: 3}
   ticketPrefab: {fileID: 8721395317407531015, guid: 5c22a0aa17f1a2447a4c66d58fb03643, type: 3}
   dicePrefab: {fileID: 2923130460937422453, guid: 9ec0619fb99ff6140a2dbde239da4d6c, type: 3}
   ticketDispenser: {fileID: 1872111147}

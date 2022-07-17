@@ -1,60 +1,100 @@
 PLEA,ROLL NEEDED,ROLL MUST BE LOWER,SEVERITY
 Please RNGenie!_I need to roll REALLY HIGH to stop the princess from falling out of the tower!,16,FALSE,1
-Please RNGenie!_I need the knight to roll REALLY LOW so I can get out of this tower!,5,TRUE,1
-Please RNGenie!_Anything but a REALLY LOW roll!,2,FALSE,2
-Please RNGenie!_I need a REALLY HIGH roll to finish off the BOSS!,19,FALSE,3
-Please RNGenie!_If the BOSS doesn't roll REALLY LOW we all die!,3,TRUE,3
-Please RNGenie!_I need to roll HIGH to break down this door!,12,FALSE,1
+Please RNGenie!_I need the knight to roll REALLY LOW so I can get out of this tower!,6,TRUE,1
+Please RNGenie!_Anything but a REALLY LOW roll!,6,FALSE,2
+Please RNGenie!_I need a REALLY HIGH roll to finish off the BOSS!,16,FALSE,3
+Please RNGenie!_If the BOSS doesn't roll REALLY LOW we all DIE!,6,TRUE,3
+Please RNGenie!_I need to roll HIGH to break down this door!,10,FALSE,1
 Please RNGenie!_We need the goblins to roll LOW so they don't spot us!,10,TRUE,2
-Please RNGenie!_I need to roll REALLY HIGH to sneak into this mansion!,18,FALSE,2
-Please RNGenie!_I need to roll REALLY HIGH to RESURRECT my party member!,19,FALSE,3
+Please RNGenie!_I need to roll REALLY HIGH to sneak into this mansion!,16,FALSE,2
+Please RNGenie!_I need to roll REALLY HIGH to RESURRECT my party member!,16,FALSE,3
 Please RNGenie!_If I roll REALLY LOW the shopkeeper will catch me!,6,FALSE,1
-Please RNGenie!_If the pirates roll HIGH our ship will sink!,14,TRUE,3
-Please RNGenie!_If I roll REALLY HIGH I can convince the hag to lift the curse on my friend!,17,FALSE,1
-Please RNGenie!_If I roll HIGH I can counter the wizard's spell!,13,FALSE,2
-Please RNGenie!_I am at REALLY LOW health and if I do NOT roll HIGH the goblins will KILL me!,14,FALSE,3
-Please RNGenie!_If the evil cult rolls REALLY HIGH they'll RESURRECT the lich! We can't let that happen!,18,TRUE,3
-Please RNGenie!_I am worried people are following us. I need to roll HIGH to check our surroundings!,13,FALSE,1
-Please RNGenie!_The enemies are retreating! I need them to roll LOW so they can't escape in time!,8,TRUE,2
-Please RNGenie!_We are REALLY HIGH up and if I do NOT roll REALLY HIGH I will fall to my death!,17,FALSE,3
-Please RNGenie!_I need to roll HIGH so I don't make a fool of myself at this carnival!,11,FALSE,1
+Please RNGenie!_If the pirates roll HIGH our ship will sink!,10,TRUE,3
+Please RNGenie!_If I roll REALLY HIGH I can convince the hag to lift the curse on my friend!,16,FALSE,1
+Please RNGenie!_If I roll HIGH I can counter the wizard's spell!,10,FALSE,2
+Please RNGenie!_I am at REALLY LOW health and if I do NOT roll HIGH the goblins will KILL me!,10,FALSE,3
+Please RNGenie!_If the evil cult rolls REALLY HIGH they'll RESURRECT the lich! We can't let that happen!,16,TRUE,3
+Please RNGenie!_I am worried people are following us. I need to roll HIGH to check our surroundings!,10,FALSE,1
+Please RNGenie!_The enemies are retreating! I need them to roll LOW so they can't escape in time!,10,TRUE,2
+Please RNGenie!_We are REALLY HIGH up and if I do NOT roll REALLY HIGH I will fall to my death!,16,FALSE,3
+Please RNGenie!_I need to roll HIGH so I don't make a fool of myself at this carnival!,10,FALSE,1
 Please RNGenie!_If I roll LOW this wild horse will buck me off its back!,10,FALSE,1
-Please RNGenie!_If I roll HIGH EVERYTHING will go back to normal and this will all be a dream!,13,FALSE,3
-Please RNGenie!_If our cleric does NOT roll REALLY LOW he will RESURRECT me and I want to DIE!,4,TRUE,3
-Please RNGenie!_If I roll HIGH I can catch the arrow out of the sky and look really cool!,12,FALSE,1
-Please RNGenie!_If the BOSS rolls REALLY HIGH the dragon will turn against us! We'd all DIE!,18,TRUE,3
+Please RNGenie!_If I roll HIGH EVERYTHING will go back to normal and this will all be a dream!,10,FALSE,3
+Please RNGenie!_If our cleric does NOT roll REALLY LOW he will RESURRECT me and I want to DIE!,6,TRUE,3
+Please RNGenie!_If I roll HIGH I can catch the arrow out of the sky and look really cool!,10,FALSE,1
+Please RNGenie!_If the BOSS rolls REALLY HIGH the dragon will turn against us! We'd all DIE!,6,TRUE,3
 Please RNGenie!_EVERYTHING is fine. This roll does NOT matter!,1,FALSE,1
-Please RNGenie!_Today is my birthday and I need to roll REALLY HIGH to KILL the BOSS and look really cool in front of my friends!,18,FALSE,3
-Please RNGenie!_This is my first time playing. I need to roll HIGH to NOT fail whatever this is!,12,FALSE,2
-Please RNGenie!_The tension in this room is too HIGH! I want to roll REALLY LOW so I'll make everyone laugh!,4,TRUE,1
-Please RNGenie!_If the giant does NOT roll REALLY HIGH we should be able to make it out of here safely!,18,TRUE,2
+Please RNGenie!_Today is my birthday and I need to roll REALLY HIGH to KILL the BOSS and look really cool in front of my friends!,16,FALSE,3
+Please RNGenie!_This is my first time playing. I need to roll HIGH to NOT fail whatever this is!,10,FALSE,2
+Please RNGenie!_The tension in this room is too HIGH! I want to roll REALLY LOW so I'll make everyone laugh!,6,TRUE,1
+Please RNGenie!_If the giant does NOT roll REALLY HIGH we should be able to make it out of here safely!,16,TRUE,2
 Please RNGenie!_I need to roll HIGH to catch this fairy in a jar!,10,FALSE,2
-Please RNGenie!_I forgot why we came here. I need to roll HIGH so my character can remember for me!,12,FALSE,1
-Please RNGenie!_Vecnar must NOT roll HIGH or else I will be trapped in a trance!,13,TRUE,2
+Please RNGenie!_I forgot why we came here. I need to roll HIGH so my character can remember for me!,10,FALSE,1
+Please RNGenie!_Vecnar must NOT roll HIGH or else I will be trapped in a trance!,10,TRUE,2
 Please RNGenie!_I need the rogue to roll LOW so I can steal his thunder!,10,TRUE,1
-Please RNGenie!_I need to roll REALLY HIGH to resist being controlled by the mind flayer!,18,FALSE,3
-Please RNGenie!_I need to roll REALLY HIGH to convince my party that I did not in fact lose my gun!,17,FALSE,2
-Please RNGenie!_I need to roll REALLY HIGH so that my proton torpedos hit their mark!,19,FALSE,3
-Please RNGenie!_I need the Baron NOT to roll HIGH so that we can get to the spice first!,11,TRUE,2
-Please RNGenie!_If I roll LOW I can miss this shot on purpose and the tribe will be our friends!,8,TRUE,1
-Please RNGenie!_The demogorgon is on our tail! If it rolls LOW we might be able to escape!,7,TRUE,2
+Please RNGenie!_I need to roll REALLY HIGH to resist being controlled by the mind flayer!,16,FALSE,3
+Please RNGenie!_I need to roll REALLY HIGH to convince my party that I did not in fact lose my gun!,16,FALSE,2
+Please RNGenie!_I need to roll REALLY HIGH so that my proton torpedos hit their mark!,16,FALSE,3
+Please RNGenie!_I need the Baron NOT to roll HIGH so that we can get to the spice first!,10,TRUE,2
+Please RNGenie!_If I roll LOW I can miss this shot on purpose and the tribe will be our friends!,10,TRUE,1
+Please RNGenie!_The demogorgon is on our tail! If it rolls LOW we might be able to escape!,10,TRUE,2
 Please RNGenie!_I need to roll REALLY HIGH to avoid the belligerent fist of an intoxicated customer!,16,FALSE,2
-Please RNGenie!_I'm not asking for much just LOW or better and I can get through the obstacle course!,8,FALSE,1
-Please RNGenie!_I just need to roll HIGH to spot the translucent ooze hiding in the hallway!,13,FALSE,2
-Please RNGenie!_EVERYTHING in the city is coming down around us! We need to roll REALLY HIGH to fly out safely!,17,FALSE,3
-Please RNGenie!_EVERYTHING is on fire! I need to roll REALLY HIGH to grab the important documents before they burn up!,18,FALSE,3
-Please RNGenie!_The barmaid said she'd give me a discount if I put on a good performace. Let me roll HIGH!,14,FALSE,1
-Please RNGenie!_If the demogorgon rolls HIGH it will be able to catch up to the rival patry and take them down!,13,FALSE,2
-Please RNGenie!_If I roll REALLY LOW and drop the magic dagger we'll never be able to stop the BOSS!,4,FALSE,3
-Please RNGenie!_I need to roll HIGH so that my magic impresses the children!,12,FALSE,1
-Please RNGenie!_I must NOT roll LOW when trying to convince the guard that the queen asked me to bring her a lit stick of dynamite!,12,FALSE,2
-Please RNGenie!_Beep boop beeep beep BOOP beep!,5,FALSE,1
-Please RNGenie!_The king's advisor is a traitor! He needs to roll LOW at the trial or the kingdom is doomed!,8,TRUE,3
-Please RNGenie!_One of my fellow crewmates is acting quite suspicious! I need to roll LOW to expose him!,9,TRUE,1
-Please RNGenie..._I'm so tired. Let me DIE here...let me roll HIGH...,19,FALSE,3
-Please RNGenie!_My DM said they'd kick me out of the group if my food isn't good. I need to roll REALLY HIGH to keep playing!,18,FALSE,3
+Please RNGenie!_I'm not asking for much just LOW or better and I can get through the obstacle course!,6,FALSE,1
+Please RNGenie!_I just need to roll HIGH to spot the translucent ooze hiding in the hallway!,10,FALSE,2
+Please RNGenie!_EVERYTHING in the city is coming down around us! We need to roll REALLY HIGH to fly out safely!,16,FALSE,3
+Please RNGenie!_EVERYTHING is on fire! I need to roll REALLY HIGH to grab the important documents before they burn up!,16,FALSE,3
+Please RNGenie!_The barmaid said she'd give me a discount if I put on a good performace. Let me roll HIGH!,10,FALSE,1
+Please RNGenie!_If the demogorgon rolls HIGH it will be able to catch up to the rival patry and take them down!,10,FALSE,2
+Please RNGenie!_If I roll REALLY LOW and drop the magic dagger we'll never be able to stop the BOSS!,10,FALSE,3
+Please RNGenie!_I need to roll HIGH so that my magic impresses the children!,10,FALSE,1
+Please RNGenie!_I must NOT roll LOW when trying to convince the guard that the queen asked me to bring her a lit stick of dynamite!,10,FALSE,2
+Please RNGenie!_If I roll HIGH I might finally be cool!,10,FALSE,1
+Please RNGenie!_The king's advisor is a traitor! He needs to roll LOW at the trial or the kingdom is doomed!,10,TRUE,3
+Please RNGenie!_One of my fellow crewmates is acting quite suspicious! I need to roll LOW to expose him!,10,TRUE,1
+Please RNGenie..._I'm so tired. Let me DIE here...let me roll HIGH...,10,FALSE,3
+Please RNGenie!_My DM said they'd kick me out of the group if my food isn't good. I need to roll REALLY HIGH to keep playing!,16,FALSE,3
 Please RNGenie!_I need to come up with a cool catchphrase on the spot! If I roll LOW I'll make a fool of myself!,10,FALSE,1
-Please RNGenie!_The alien just asked me how I taste. If I roll LOW I might not be able to keep it away from me!,11,FALSE,2
-Please RNGenie!_If I roll REALLY LOW I might finally get to see my patron!,3,TRUE,2
-Please RNGenie!_If I roll REALLY HIGH the bugs might not devour everything I love and cherish!,19,FALSE,3
-Please RNGenie!_If I roll REALLY HIGH I can RESURRECT my dead mother!,19,FALSE,3
+Please RNGenie!_The alien just asked me how I taste. If I roll LOW I might not be able to keep it away from me!,10,FALSE,2
+Please RNGenie!_If I roll REALLY LOW I might finally get to see my patron!,6,TRUE,2
+Please RNGenie!_If I roll REALLY HIGH the bugs might not devour EVERYTHING I love and cherish!,16,FALSE,3
+Please RNGenie!_If I roll REALLY HIGH I can RESURRECT my dead mother!,16,FALSE,3
+Please RNGenie!_If we roll HIGH and sneak past the sleeping dragon we can steal from his hoard!,10,FALSE,2
+Please RNGenie!_I need them to roll LOW so my fireball kills them all!,10,TRUE,2
+Please RNGenie!_Make the dragon roll REALLY LOW so they do NOT see that they are missing an egg!,6,TRUE,3
+Please RNGenie!_I need to roll HIGH to get back into the house without my parents hearing!,10,FALSE,1
+Please RNGenie!_The guards are rounding the corner! Make them roll LOW so they dont see us in the bushes!,10,TRUE,2
+Please RNGenie!_I drank a lot of ale! Please let me roll HIGH to resist blacking out!,10,FALSE,1
+Please RNGenie!_I ate some old food! Please let me roll HIGH to resist becoming poisoned!,10,FALSE,1
+Please RNGenie!_Vecnar put me in a trance! I need to roll REALLY HIGH to snap out of it!,16,FALSE,3
+Please RNGenie!_Vecnar is about to KILL us! I need to roll HIGH to cut off his hand and stop him!,10,FALSE,2
+Please RNGenie!_Matt is plotting something! I need to roll REALLY HIGH to foil his plans!,16,FALSE,2
+Please RNGenie!_Mulligan is rolling in front of us and if he rolls HIGH we will all DIE! Make him roll LOW!,10,TRUE,3
+Please RNGenie!_I need this gold! I need to roll HIGH to convince the party I did NOT steal from them!,10,FALSE,2
+Please RNGenie!_The bard pushed me! I need to roll HIGH to not fall over and look like a fool!,10,FALSE,1
+Please RNGenie!_I lost my keys! I must NOT roll LOW or else I will NOT be able to get into my house!,10,FALSE,2
+Please RNGenie!_Vecnar still has 2 eyes! I need to roll HIGH to take one for myself!,10,FALSE,2
+Please RNGenie!_This roll needs to be HIGH or else!,10,FALSE,3
+Please RNGenie!_This roll needs to be LOW or else!,10,TRUE,3
+Please RNGenie!_I need to roll REALLY HIGH to stop the princess from walking into a trap!,16,FALSE,2
+Please RNGenie!_The walls are closing in! I must NOT roll REALLY LOW or else I will be squished!,6,FALSE,2
+Please RNGenie!_There is a boulder rolling towards us! I need to roll HIGH to jump out of the way!,10,FALSE,1
+Please RNGenie!_If we roll REALLY LOW we won't encounter something dangerous in this wasteland!,6,TRUE,2
+Please RNGenie!_If the other bard rolls LOW I'll win over the judges and get the prize!,10,TRUE,1
+Please RNGenie!_The Mind Flayer has taken over my whole party! I need to roll LOW so I can join them!,10,TRUE,2
+Please RNGenie!_Vecnar still has 2 hands! I need to roll HIGH to chop one off!,10,FALSE,3
+Please RNGenie!_I need to roll REALLY HIGH to stay on the back of this eagle while it flies over the Volcano!,16,FALSE,3
+Please RNGenie!_I need the gremlin to roll REALLY LOW so he doesn't bite my finger with the magic ring off!,6,TRUE,3
+Please RNGenie!_You let me down last time! Do NOT make me roll LOW again!,10,FALSE,3
+Please RNGenie!_If we let the halfling use that magic rock the BOSS will see us! I need to roll REALLY HIGH to hide it from him!,16,FALSE,3
+Please RNGenie!_I am serious! If you make me roll LOW again I will find you!,10,FALSE,3
+Please RNGenie!_The mad scientist is trying to RESURRECT the evil alien race! Make her roll REALLY LOW!,6,TRUE,3
+Please RNGenie!_This is my only chance to learn who killed my mother! Let me roll REALLY HIGH!,16,FALSE,3
+Please RNGenie!_I need the samurai to roll LOW so I can win this duel!,10,TRUE,2
+Please RNGenie!_I'm NOT sure what's going on! EVERYTHING is on fire! give me a REALLY HIGH roll to get out of this!,16,FALSE,2
+Please RNGenie!_I really need to roll REALLY HIGH or else the hydrogen Collider might explode!,16,FALSE,2
+Please RNGenie!_I'm trying to catch a tiger with a tuna sandwich! Tigers love those! Just let me roll NOT LOW!,10,FALSE,1
+Please RNGenie!_The game is starting soon! I want to get rid of my bad rolls now! Give me a REALLY LOW roll!,6,TRUE,2
+Please RNGenie!_Can you effect digital rolls? If so make me roll REALLY LOW,6,TRUE,1
+Please RNGenie!_I want a LOW roll so that the rope bridge does NOT break!,10,TRUE,2
+Please RNGenie!_I'm only trying for a warning shot! Give me something LOW!,10,TRUE,1
+Please RNGenie!_I need to KILL the BOSS before he can RESURRECT my brother! Do NOT let him roll HIGH!,10,TRUE,3

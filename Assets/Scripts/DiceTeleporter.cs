@@ -5,7 +5,7 @@ using UnityEngine;
 public class DiceTeleporter : MonoBehaviour
 {
     public GameObject dice;
-
+    
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Die")
         {

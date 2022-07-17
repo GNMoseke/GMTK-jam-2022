@@ -29,6 +29,5 @@ public class DiceManager : MonoBehaviour
             one.name = "1";
             one.GetComponent<Renderer>().material.SetFloat("_Number", 1);
         }
-
     }
 }

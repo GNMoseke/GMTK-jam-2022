@@ -25,12 +25,14 @@ public class Pause : MonoBehaviour
     private void PauseGame()
     {
         Leaderboard.SetActive(false);
+        gameManager.GetComponent<AudioSource>().Pause();
         Camera.main.GetComponent<CameraRotate>().StartRotation(false, false);
         Time.timeScale = 0.0f;
     }
 
     public void ResumeGame()
     {
+        gameManager.GetComponent<AudioSource>().Play();
         Camera.main.GetComponent<CameraRotate>().StartRotation(true, false);
         Time.timeScale = 1.0f;
     }

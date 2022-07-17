@@ -74,7 +74,6 @@ public class TicketModel : MonoBehaviour
             else
             {
                 timerRunning = false;
-                Debug.Log("ticket timed out");
                 OnTicketFailed(null);
             }
         }
@@ -108,7 +107,6 @@ public class TicketModel : MonoBehaviour
     {
         if (collision.gameObject.tag == "Die")
         {
-            print($"setting coyote time for ${collision.gameObject} to {this.coyoteTime}");
             // FIXME: slightly dangerous, error handling prob good.
             this.coyoteTimes[collision.gameObject] = this.coyoteTime;
         }
@@ -116,7 +114,6 @@ public class TicketModel : MonoBehaviour
 
     void ResolveTicket(GameObject die)
     {
-        print($"resolving ticket with die {die}...");
         if (die != null)
         {
             this.timerRunning = false;

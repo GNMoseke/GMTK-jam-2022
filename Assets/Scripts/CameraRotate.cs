@@ -65,7 +65,6 @@ public class CameraRotate : MonoBehaviour
     public void RotateCamera(bool towardsTable)
     {
         currentCameraAngle = Camera.main.transform.eulerAngles;
-        print("ROTATING towards table " + towardsTable);
 
         currentCameraAngle = new Vector3(
             Mathf.LerpAngle(currentCameraAngle.x, targetCameraAngle.x, Time.unscaledDeltaTime),

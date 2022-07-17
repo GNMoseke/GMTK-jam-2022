@@ -4899,13 +4899,14 @@ MonoBehaviour:
   dicePrefab: {fileID: 2923130460937422453, guid: 9ec0619fb99ff6140a2dbde239da4d6c, type: 3}
   ticketDispenser: {fileID: 1872111147}
   ticketSpawnPosition: {fileID: 1010659690}
-  successParticles: {fileID: 2851651132261508067, guid: 2e62559f8cd0b614baebcc0223759112, type: 3}
-  failParticles: {fileID: 7148402213069846348, guid: 9abb6b250e4a3114283c5aaa5c881874, type: 3}
+  successParticles: {fileID: 6638990240333430584, guid: 209904c922f002343812b9b532e42452, type: 3}
+  failParticles: {fileID: 6638990240333430584, guid: d5b9322e1d7856d4fb4a4d8d4ad9cdc2, type: 3}
+  diceDestroySparks: {fileID: 2851651132261508067, guid: 2e62559f8cd0b614baebcc0223759112, type: 3}
+  diceDestroySmoke: {fileID: 7148402213069846348, guid: 9abb6b250e4a3114283c5aaa5c881874, type: 3}
   leaderboard: {fileID: 122667501}
   followerText: {fileID: 655737428}
   printerClip: {fileID: 1872111154}
   ticketTimer: 0
-  numActiveTickets: 0
   shootForce: 3500
   nat20Counter: 0
   nat1Counter: 0

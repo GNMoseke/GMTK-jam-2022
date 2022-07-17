@@ -6,8 +6,10 @@ using System.Collections.Generic;
 
 public class GameModel : MonoBehaviour
 {
+    // start at 20, increas by 10 each day
     const int TICKETS = 20;
     const float DAY_LENGTH = 120;
+    const int VICTORY_COUNT = 200;
 
     public int day { get; set; }
     public float dayTimer { get; set; }
@@ -32,7 +34,7 @@ public class GameModel : MonoBehaviour
 
     public float ticketTimer;
 
-    public int numActiveTickets;
+    int ticketIndex = 0;
     public float shootForce;
 
     public int nat20Counter;
@@ -64,8 +66,9 @@ public class GameModel : MonoBehaviour
                 ticketTimer += Time.deltaTime;
                 if (ticketTimer >= dailyTicketInterval)
                 {
-                    GenerateTicket(tickets[numActiveTickets]);
-                    numActiveTickets++;
+                    print($"using ticket at idx {ticketIndex}");
+                    GenerateTicket(tickets[ticketIndex]);
+                    ticketIndex++;
                     ticketTimer = 0;
                 }
             }
@@ -75,6 +78,11 @@ public class GameModel : MonoBehaviour
                 // 2) click continue
                 betweenDays = true;
                 Camera.main.GetComponent<CameraRotate>().StartRotation(false, true);
+                // check if the player just won
+                if (followerCount > VICTORY_COUNT) 
+                {
+
+                }
                 ResetTable();
             }
         }
@@ -103,12 +111,11 @@ public class GameModel : MonoBehaviour
         dayTimer = DAY_LENGTH;
         nat20Counter = 4 + day;
         nat1Counter = 4 + day;
-        int dailyTickets = (TICKETS + (10 * day));
+        int dailyTickets = (TICKETS + (10 * (day - 1)));
         int randomDice = dailyTickets - nat1Counter - nat20Counter;
         dayTimer = DAY_LENGTH;
         dailyTicketInterval = DAY_LENGTH / dailyTickets;
         ticketTimer = dailyTicketInterval - 1f;
-        numActiveTickets = 1;
 
         Time.timeScale = 1f;
         betweenDays = false;
@@ -129,7 +136,6 @@ public class GameModel : MonoBehaviour
     {
         if (success)
         {
-            print("PASSED");
             GameObject.Instantiate(successParticles, loc, Quaternion.identity);
             followerCount += severity;
         }

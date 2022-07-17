@@ -7,6 +7,7 @@ TagManager:
   - Die
   - Ticket
   - VFX
+  - Junk
   layers:
   - Default
   - TransparentFX

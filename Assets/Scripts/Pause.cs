@@ -13,7 +13,7 @@ public class Pause : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameManager.betweenRounds)
         {
             if (Time.timeScale == 0.0f)
                 ResumeGame();

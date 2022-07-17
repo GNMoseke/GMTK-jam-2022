@@ -10,7 +10,7 @@ public class DiceManager : MonoBehaviour
     {
         for (int i = 0; i < diceNum; i++)
         {
-            GameObject newDice = Instantiate(dice, new Vector3(Random.Range(-2, 30), Random.Range(20.0f, 30.0f), Random.Range(-6, 12)), dice.transform.rotation);
+            GameObject newDice = Instantiate(dice, new Vector3(0, 10 * i, 25), dice.transform.rotation);
             int num = Random.Range(2, 20);
             newDice.GetComponent<DieModel>().value = num;
             newDice.name = num.ToString();

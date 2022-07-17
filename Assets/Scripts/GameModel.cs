@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 
 public class GameModel : MonoBehaviour
@@ -31,14 +32,15 @@ public class GameModel : MonoBehaviour
     public Leaderboard leaderboard;
     public TMPro.TMP_Text followerText;
     public AudioSource printerClip;
+    public GameObject victoryBoard;
 
     public float ticketTimer;
 
     int ticketIndex = 0;
     public float shootForce;
 
-    public int nat20Counter;
-    public int nat1Counter;
+    int nat20Counter;
+    int nat1Counter;
 
 
     public bool betweenDays;
@@ -79,9 +81,10 @@ public class GameModel : MonoBehaviour
                 betweenDays = true;
                 Camera.main.GetComponent<CameraRotate>().StartRotation(false, true);
                 // check if the player just won
-                if (followerCount > VICTORY_COUNT) 
+                if (followerCount > VICTORY_COUNT)
                 {
-
+                    leaderboard.gameObject.SetActive(false);
+                    victoryBoard.SetActive(true);
                 }
                 ResetTable();
             }
@@ -153,6 +156,11 @@ public class GameModel : MonoBehaviour
         UpdateUI();
     }
 
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+
     void UpdateUI()
     {
         leaderboard.UpdateLeaderboard(followerCount);
@@ -161,17 +169,18 @@ public class GameModel : MonoBehaviour
         //followerSlider.value = (float)followerCount / 100f;
     }
 
-    private static System.Random rng = new System.Random();  
+    private static System.Random rng = new System.Random();
 
-    public static void Shuffle<T>(IList<T> list)  
-    {  
-        int n = list.Count;  
-        while (n > 1) {  
-            n--;  
-            int k = rng.Next(n + 1);  
-            T value = list[k];  
-            list[k] = list[n];  
-            list[n] = value;  
-        }  
+    private void Shuffle<T>(IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }

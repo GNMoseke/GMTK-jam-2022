@@ -20,7 +20,7 @@ public class TicketModel : MonoBehaviour
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
 
-    public delegate void NotifyTicketComplete(bool success, int severity, Vector3 loc);
+    public delegate void NotifyTicketComplete(bool success, int severity, Vector3 loc, GameObject completedTicket);
     public event NotifyTicketComplete ticketCompletion;
 
     public TicketModel(string plea, int rollNeeded, bool below, int severity)
@@ -52,7 +52,7 @@ public class TicketModel : MonoBehaviour
         }
 
         this.pleaTextObj.text = model.plea;
-        this.timeToComplete = 10f;
+        this.timeToComplete = 8f;
         this.coyoteTime = 0.25f;
         this.timeRemaining = timeToComplete;
 
@@ -138,7 +138,7 @@ public class TicketModel : MonoBehaviour
 
     protected virtual void OnTicketSucceeded(GameObject die)
     {
-        ticketCompletion.Invoke(true, this.ticketSeverity, this.transform.position);
+        ticketCompletion.Invoke(true, this.ticketSeverity, this.transform.position, this.gameObject);
         GameObject.Destroy(gameObject);
         if (die != null)
         {
@@ -147,7 +147,7 @@ public class TicketModel : MonoBehaviour
     }
     public virtual void OnTicketFailed(GameObject die)
     {
-        ticketCompletion.Invoke(false, this.ticketSeverity, this.transform.position);
+        ticketCompletion.Invoke(false, this.ticketSeverity, this.transform.position, this.gameObject);
         GameObject.Destroy(gameObject);
         if (die != null)
         {

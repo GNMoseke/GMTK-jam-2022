@@ -6,7 +6,7 @@ public class DiceManager : MonoBehaviour
 {
     public static Vector3 standardSpawnPosition = new Vector3(17f, Random.Range(50.0f, 80.0f), 3f);
 
-    public static void GenerateDice(int diceNum, GameObject dice)
+    public static void GenerateDice(int diceNum, GameObject dice, int specialDiceNum)
     {
         for (int i = 0; i < diceNum; i++)
         {
@@ -17,7 +17,7 @@ public class DiceManager : MonoBehaviour
             newDice.GetComponent<Renderer>().material.SetFloat("_Number", num);
             newDice.GetComponent<Rigidbody>().velocity = new Vector3(-30.0f, 0.0f, -20.0f);
         }
-        for (int i = 1; i < 6; i++)
+        for (int i = 1; i < specialDiceNum + 1; i++)
         {
             GameObject twenty = Instantiate(dice, new Vector3(i * 3, 17, 10), dice.transform.rotation);
             twenty.GetComponent<DieModel>().value = 20;

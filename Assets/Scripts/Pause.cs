@@ -11,26 +11,22 @@ public class Pause : MonoBehaviour
     [SerializeField] GameModel gameManager;
     [SerializeField] TMPro.TMP_Text pauseLeaderboardText;
 
-    void OnGUI()
+    void Update()
     {
-        Event e = Event.current;
-        if (e.keyCode == KeyCode.Escape)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PauseGame();
+            if (Time.timeScale == 0.0f)
+                ResumeGame();
+            else
+                PauseGame();
         }
-    }
-
-    private void Update()
-    {
-        //Hold off changing board
     }
 
     private void PauseGame()
     {
+        Leaderboard.SetActive(false);
         Camera.main.GetComponent<CameraRotate>().StartRotation(false, false);
         Time.timeScale = 0.0f;
-        pauseMenu.SetActive(true);
-        Leaderboard.SetActive(false);
     }
 
     public void ResumeGame()

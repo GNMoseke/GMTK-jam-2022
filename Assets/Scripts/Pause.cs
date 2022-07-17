@@ -10,7 +10,6 @@ public class Pause : MonoBehaviour
     [SerializeField] GameObject Leaderboard;
     [SerializeField] GameModel gameManager;
     [SerializeField] TMPro.TMP_Text pauseLeaderboardText;
-    public GameObject pipe;
 
     void OnGUI()
     {
@@ -32,14 +31,12 @@ public class Pause : MonoBehaviour
         Time.timeScale = 0.0f;
         pauseMenu.SetActive(true);
         Leaderboard.SetActive(false);
-        pipe.SetActive(false);
     }
 
     public void ResumeGame()
     {
         Camera.main.GetComponent<CameraRotate>().StartRotation(true, false);
         Time.timeScale = 1.0f;
-        pipe.SetActive(true);
     }
 
     public void QuitGame()

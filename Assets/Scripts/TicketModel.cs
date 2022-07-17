@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TicketModel : MonoBehaviour
 {
+    // The age old law: when in doubt, throw a dictionary at it
+    private Dictionary<GameObject, float> coyoteTimes;
+
     // 1 2 or 3. Was an enum but overcomplicated for something so simple
     int ticketSeverity;
     float timeToComplete;
@@ -14,7 +17,6 @@ public class TicketModel : MonoBehaviour
     bool timerRunning = false;
     string plea { get; set; }
     float coyoteTime;
-    bool pendingDestroy;
 
     Image mask;
     public TMPro.TMP_Text pleaTextObj;
@@ -52,11 +54,11 @@ public class TicketModel : MonoBehaviour
 
         this.pleaTextObj.text = model.plea;
         this.timeToComplete = 10f;
-        this.coyoteTime = 0.5f;
+        this.coyoteTime = 0.4f;
         this.timeRemaining = timeToComplete;
-        this.pendingDestroy = false;
 
         this.timerRunning = true;
+        this.coyoteTimes = new Dictionary<GameObject, float>();
     }
 
     // Update is called once per frame
@@ -79,24 +81,44 @@ public class TicketModel : MonoBehaviour
         }
     }
 
+// TODO: bottom of tickets causes problems
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Die")
         {
-            StartCoroutine(CoyoteTime(collision.gameObject));
+            // add the die to the coyote times tracker if we can
+            this.coyoteTimes.TryAdd(collision.gameObject, coyoteTime);
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        // while the die is touching, subtract from its coyote time
+        if (collision.gameObject.tag == "Die")
+        {
+            float newTime = this.coyoteTimes[collision.gameObject] - Time.deltaTime;
+            if (newTime <= 0)
+            {
+                ResolveTicket(collision.gameObject);
+            }
+            this.coyoteTimes[collision.gameObject] = newTime;
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
-        this.pendingDestroy = false;
+        if (collision.gameObject.tag == "Die")
+        {
+            print($"setting coyote time for ${collision.gameObject} to {this.coyoteTime}");
+            // FIXME: slightly dangerous, error handling prob good.
+            this.coyoteTimes[collision.gameObject] = this.coyoteTime;
+        }
     }
 
-    IEnumerator CoyoteTime(GameObject die)
+    void ResolveTicket(GameObject die)
     {
-        this.pendingDestroy = true;
-        yield return new WaitForSecondsRealtime(coyoteTime);
-        if (this.pendingDestroy && die != null)
+        print($"resolving ticket with die {die}...");
+        if (die != null)
         {
             this.timerRunning = false;
             // if we need below and the die is below what we need, succeed

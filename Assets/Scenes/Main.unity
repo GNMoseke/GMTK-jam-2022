@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 99641612}
   - component: {fileID: 99641611}
   m_Layer: 5
-  m_Name: Follower Count
+  m_Name: Loyal Customr Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Followers: 0'
+  m_text: 'Loyal Customers: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
   m_sharedMaterial: {fileID: 7720531730211973322, guid: 4153316de947c024e9e29a44e27f2d03, type: 2}
@@ -1343,7 +1343,7 @@ GameObject:
   - component: {fileID: 847324169}
   - component: {fileID: 847324170}
   m_Layer: 5
-  m_Name: Follower Bar
+  m_Name: Loyal Customer Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3023,19 +3023,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Patt Percer: 191 Followers
+  m_text: 'Patt Percer: 191 Loyal Customers
 
-    Mulligan: 199 Followers
+    Mulligan: 199 Loyal Customers
 
-    Arnac: 167
-    Followers
+    Arnac:
+    167 Loyal Customers
 
-    Tiamat: 29 Followers
+    Tiamat: 29 Loyal Customers
 
-    YOU: 3 Followers
+    YOU: 3 Loyal Customers
 
-    Phil Pheaton:
-    -26 Followers
+    Phil
+    Pheaton: -26 Loyal Customers
 
 '
   m_isRightToLeft: 0
@@ -3064,8 +3064,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32.38
-  m_fontSizeBase: 32.38
+  m_fontSize: 26.2
+  m_fontSizeBase: 26.2
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919954c29c0b5424fb6c0ba5e5bd9011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ticketsCSV: {fileID: 4900000, guid: 56d1797a8ccc7b649aaf554430e2556d, type: 3}
+  ticketsCSV: {fileID: 4900000, guid: dcb3c4e15e5149144b6c30448b92c09e, type: 3}
   ticketPrefab: {fileID: 8721395317407531015, guid: 5c22a0aa17f1a2447a4c66d58fb03643, type: 3}
   dicePrefab: {fileID: 2923130460937422453, guid: 9ec0619fb99ff6140a2dbde239da4d6c, type: 3}
   followerSlider: {fileID: 847324170}

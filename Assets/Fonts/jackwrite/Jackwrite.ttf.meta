@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: d7a37ba39f1f2554a94c73f6a14d37d6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Jackwrite
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c17f5a84135348648a6390b4d5cfac3b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

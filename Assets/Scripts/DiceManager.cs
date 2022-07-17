@@ -16,5 +16,14 @@ public class DiceManager : MonoBehaviour
             newDice.name = num.ToString();
             newDice.GetComponent<Renderer>().material.SetFloat("_Number", num);
         }
+        for (int i = 1; i < 6; i++)
+        {
+            GameObject twenty = Instantiate(dice, new Vector3(i * 2.5f, 17.5f, 15.0f), dice.transform.rotation);
+            twenty.name = "20";
+            twenty.GetComponent<Renderer>().material.SetFloat("_Number", 20);
+            GameObject one = Instantiate(dice, new Vector3(-i * 2.5f, 17.5f, 15.0f), dice.transform.rotation);
+            one.name = "1";
+            one.GetComponent<Renderer>().material.SetFloat("_Number", 1);
+        }
     }
 }

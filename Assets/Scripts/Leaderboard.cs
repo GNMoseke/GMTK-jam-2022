@@ -25,7 +25,7 @@ public class Leaderboard : MonoBehaviour
         leaderboardUI.text = "";
         var sortedLeaderboard = from entry in leaderboard orderby entry.Value descending select entry;
         foreach(var item in sortedLeaderboard) {
-            leaderboardUI.text += $"{item.Key}: {item.Value + ((item.Key == "YOU") ? 0 : Random.Range(-20, 20))} Followers\n";
+            leaderboardUI.text += $"{item.Key}: {item.Value + ((item.Key == "YOU") ? 0 : Random.Range(-20, 20))} Loyal Customers\n";
         }
     }
 }

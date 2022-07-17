@@ -21,5 +21,8 @@ public class DiceTeleporter : MonoBehaviour
         {
             collision.gameObject.GetComponent<TicketModel>().OnTicketFailed(null);
         }
+        if (collision.gameObject.tag == "Junk") {
+            GameObject.Destroy(collision.gameObject);
+        }
     }
 }

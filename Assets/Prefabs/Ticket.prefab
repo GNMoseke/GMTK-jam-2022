@@ -361,8 +361,8 @@ MonoBehaviour:
     I must <color=#FF0000>NOT</color> roll LOW when trying
     to convince the guard that the queen asked me to bring her a lit stick of dynamite!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
-  m_sharedMaterial: {fileID: 5166265283582368704, guid: a67f73df61bb5ee4fb30aef07e1c10cc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b847ae75eabbb4b4390d7e6a1ac251fc, type: 2}
+  m_sharedMaterial: {fileID: -8352558372580483714, guid: b847ae75eabbb4b4390d7e6a1ac251fc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -386,8 +386,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.6
-  m_fontSizeBase: 0.6
+  m_fontSize: 0.7
+  m_fontSizeBase: 0.7
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

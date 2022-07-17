@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3710234422051124877}
   - component: {fileID: -5265269189992089162}
   m_Layer: 0
-  m_Name: VFX_DiceDestroy_Smoke
+  m_Name: VFX_TicketDestroy_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,12 +43,12 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0

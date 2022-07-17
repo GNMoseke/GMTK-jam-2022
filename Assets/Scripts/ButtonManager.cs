@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-
+    public GameObject tutorialCanvas;
     public void OnClickSettingsButton()
     {
         SceneManager.LoadSceneAsync("SettingsMenu");
@@ -19,5 +19,9 @@ public class ButtonManager : MonoBehaviour
     public void OnClickQuitButton()
     {
         Application.Quit();
+    }
+
+    public void OnClickTutorialButton() {
+        tutorialCanvas.SetActive(true);
     }
 }

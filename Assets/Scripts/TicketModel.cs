@@ -53,7 +53,7 @@ public class TicketModel : MonoBehaviour
 
         this.pleaTextObj.text = model.plea;
         this.timeToComplete = 10f;
-        this.coyoteTime = 0.4f;
+        this.coyoteTime = 0.25f;
         this.timeRemaining = timeToComplete;
 
         this.timerRunning = true;

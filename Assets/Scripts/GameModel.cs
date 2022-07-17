@@ -25,6 +25,8 @@ public class GameModel : MonoBehaviour
     public GameObject successParticles;
     public GameObject failParticles;
     public Leaderboard leaderboard;
+    public TMPro.TMP_Text followerText;
+    public AudioSource printerClip;
 
     public float ticketTimer;
 
@@ -41,6 +43,8 @@ public class GameModel : MonoBehaviour
     void Start()
     {
         tickets = TicketParser.ReadTickets(ticketsCSV);
+        // randomize ticket order
+        Shuffle(tickets);
         day = 0;
         followerCount = 3;
         UpdateUI();
@@ -123,6 +127,7 @@ public class GameModel : MonoBehaviour
         ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.up * shootForce);
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
+        printerClip.Play();
 
         ticketGameObj.GetComponent<TicketModel>().ticketCompletion += TicketComplete;
     }
@@ -149,8 +154,22 @@ public class GameModel : MonoBehaviour
     void UpdateUI()
     {
         leaderboard.UpdateLeaderboard(followerCount);
-
+        followerText.text = followerCount.ToString();
         // TODO: scale better
         //followerSlider.value = (float)followerCount / 100f;
+    }
+
+    private static System.Random rng = new System.Random();  
+
+    public static void Shuffle<T>(IList<T> list)  
+    {  
+        int n = list.Count;  
+        while (n > 1) {  
+            n--;  
+            int k = rng.Next(n + 1);  
+            T value = list[k];  
+            list[k] = list[n];  
+            list[n] = value;  
+        }  
     }
 }

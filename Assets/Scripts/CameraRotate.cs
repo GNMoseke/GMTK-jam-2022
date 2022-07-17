@@ -39,6 +39,10 @@ public class CameraRotate : MonoBehaviour
         }
     }
 
+    public void RotateNewDay() {
+        StartRotation(true, true);
+    }
+
     public void StartRotation(bool towardsTable, bool isEndOfDay)
     {
         //print("ROTATION STARTED");

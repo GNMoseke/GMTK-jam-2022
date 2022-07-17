@@ -45,8 +45,6 @@ public class Spawn20 : MonoBehaviour
                 }
                 else
                 {
-                    print("dump");
-
                     for (int i = 0; i < cnt; i++)
                         SpawnDie();
                     cnt = 0;

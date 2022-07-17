@@ -65,11 +65,12 @@ public class CameraRotate : MonoBehaviour
     public void RotateCamera(bool towardsTable)
     {
         currentCameraAngle = Camera.main.transform.eulerAngles;
+        float lerpSpeed = 5f;
 
         currentCameraAngle = new Vector3(
-            Mathf.LerpAngle(currentCameraAngle.x, targetCameraAngle.x, Time.unscaledDeltaTime),
-            Mathf.LerpAngle(currentCameraAngle.y, targetCameraAngle.y, Time.unscaledDeltaTime),
-            Mathf.LerpAngle(currentCameraAngle.z, targetCameraAngle.z, Time.unscaledDeltaTime)
+            Mathf.LerpAngle(currentCameraAngle.x, targetCameraAngle.x, Time.unscaledDeltaTime * lerpSpeed),
+            Mathf.LerpAngle(currentCameraAngle.y, targetCameraAngle.y, Time.unscaledDeltaTime * lerpSpeed),
+            Mathf.LerpAngle(currentCameraAngle.z, targetCameraAngle.z, Time.unscaledDeltaTime * lerpSpeed)
 
         );
         Camera.main.transform.eulerAngles = currentCameraAngle;

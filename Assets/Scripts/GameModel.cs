@@ -25,6 +25,8 @@ public class GameModel : MonoBehaviour
     public GameObject successParticles;
     public GameObject failParticles;
     public Leaderboard leaderboard;
+    public TMPro.TMP_Text followerText;
+    public AudioSource printerClip;
 
     public float ticketTimer;
 
@@ -123,6 +125,7 @@ public class GameModel : MonoBehaviour
         ticketGameObj.GetComponent<Rigidbody>().AddForce(-ticketDispenser.transform.up * shootForce);
         ticketGameObj.AddComponent<TicketModel>();
         ticketGameObj.GetComponent<TicketModel>().InstantiateTicket(ticket);
+        printerClip.Play();
 
         ticketGameObj.GetComponent<TicketModel>().ticketCompletion += TicketComplete;
     }
@@ -149,7 +152,7 @@ public class GameModel : MonoBehaviour
     void UpdateUI()
     {
         leaderboard.UpdateLeaderboard(followerCount);
-
+        followerText.text = followerCount.ToString();
         // TODO: scale better
         //followerSlider.value = (float)followerCount / 100f;
     }

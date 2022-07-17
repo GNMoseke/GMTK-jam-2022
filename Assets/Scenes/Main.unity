@@ -1826,7 +1826,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 500, y: 1, z: 500}
+  m_Size: {x: 10000, y: 1, z: 10000}
   m_Center: {x: 0, y: -5, z: 0}
 --- !u!4 &564593015
 Transform:
@@ -5967,7 +5967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NEXT DAY
+  m_text: NEXT BATCH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e87867cf1ef580a49aeed8cc2cb23fcc, type: 2}
   m_sharedMaterial: {fileID: -7466561652946185542, guid: e87867cf1ef580a49aeed8cc2cb23fcc, type: 2}
@@ -5994,8 +5994,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6471,7 +6471,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.047
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
